@@ -1,21 +1,20 @@
-﻿/* Base & Luxury Reset */
+﻿/* Base & High Performance Reset - Zero Lag, 60fps Native */
 :root {
-  --bg-dark: #090a0d;
-  --bg-surface: #111318;
-  --bg-card: rgba(22, 25, 32, 0.7);
+  --bg-dark: #050608;
+  --bg-surface: #0d0f14;
+  --bg-card: #12141c;
   --border-hairline: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-gold: rgba(212, 175, 55, 0.35);
   --text-primary: #f4f3ef;
   --text-secondary: #9aa0a6;
   --text-muted: #5f6368;
   --accent-gold: #d4af37;
   --accent-gold-light: #f5d77f;
-  --accent-amber: #e5a93b;
   --font-serif: 'Cinzel', serif;
-  --font-display: 'Syne', sans-serif;
   --font-mono: 'Space Grotesk', monospace;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -24,20 +23,9 @@
   padding: 0;
 }
 
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
 }
 
 body {
@@ -46,161 +34,352 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.lourve-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 88px;
+  z-index: 100;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================
+   SANDHILL STUDIO / LOURVE STYLE HERO
+   ========================================================== */
+.hero-museum {
   position: relative;
-  selection-background-color: var(--accent-gold);
-  selection-color: #000;
-  cursor: default;
-}
-
-/* Custom Selection */
-::selection {
-  background: var(--accent-gold);
-  color: #000;
-}
-
-/* Noise Texture Overlay */
-.grain-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  content: "";
-  opacity: 0.035;
-  pointer-events: none;
-  z-index: 9999;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Custom Interactive Cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent-gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transition: transform 0.15s ease-out, opacity 0.2s ease;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.25s var(--transition-smooth), width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-  transform: translate(-50%, -50%);
-}
-
-body:hover .custom-cursor { opacity: 1; }
-.hover-active .cursor-follower {
-  width: 60px;
-  height: 60px;
-  background: rgba(212, 175, 55, 0.08);
-  border-color: var(--accent-gold);
-}
-
-/* Header & Nav */
-.header-glass {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(9, 10, 13, 0.75);
+  min-height: 680px;
+  background: var(--bg-dark);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--border-hairline);
 }
 
-/* Glass Cards */
-.glass-panel {
-  background: rgba(17, 19, 24, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-hairline);
-  transition: all 0.4s var(--transition-smooth);
-}
-
-.glass-panel:hover {
-  border-color: var(--border-gold);
-  box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.12);
-}
-
-/* Architectural Lines */
-.arch-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-hairline), transparent);
-}
-
-.arch-line-gold {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-}
-
-/* Radial Glow */
-.glow-orb {
+/* Vertical Column Hairlines (Exact Pinterest Design) */
+.vertical-grid-lines {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   pointer-events: none;
-  opacity: 0.15;
-}
-
-/* Typography Helpers */
-.font-display { font-family: var(--font-display); }
-.font-serif { font-family: var(--font-serif); }
-.font-mono { font-family: var(--font-mono); }
-
-.text-gold-gradient {
-  background: linear-gradient(135deg, #fcebb1 0%, #d4af37 50%, #aa8214 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-silver-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #cfd3db 50%, #828792 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Gold Button with Liquid Flow */
-.btn-liquid-gold {
-  position: relative;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
-  color: #000;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  overflow: hidden;
-  transition: all 0.4s ease;
   z-index: 1;
 }
 
-.btn-liquid-gold::before {
-  content: '';
+.grid-col-line {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+}
+
+.grid-col-line:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Glowing Halo Ring Behind Sculpture */
+.halo-ring {
   position: absolute;
-  top: 0;
-  left: -100%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 12px solid #ffffff;
+  box-shadow: 
+    0 0 40px rgba(255, 255, 255, 0.9),
+    0 0 90px rgba(212, 175, 55, 0.5),
+    0 0 160px rgba(212, 175, 55, 0.25),
+    inset 0 0 30px rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  z-index: 2;
+  top: 48%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transition: transform var(--transition-smooth), opacity 0.5s ease;
+  will-change: transform;
+}
+
+/* Central 3D Sculpture Stage */
+.sculpture-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sculpture-frame {
+  position: relative;
+  width: 580px;
+  max-width: 90vw;
+  height: 720px;
+  max-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-smooth), opacity 0.5s ease;
+  will-change: transform;
+}
+
+.sculpture-media {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: all 0.6s ease;
-  z-index: -1;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+  transition: opacity 0.4s ease;
 }
 
-.btn-liquid-gold:hover::before {
-  left: 100%;
+/* Left Vertical Progress Dashboard */
+.hero-pagination-vertical {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 25;
 }
 
-.btn-liquid-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+.progress-dash-item {
+  width: 20px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Interactive Before & After Slider */
+.progress-dash-item.active {
+  width: 38px;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+/* Slide Typography Content Overlay */
+.hero-content-layer {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 36px;
+  pointer-events: none;
+}
+
+.slide-content-block {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(18px);
+}
+
+.slide-content-block.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Exact Museum Large Serif Title */
+.museum-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.2vw, 6.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: #f4f3ef;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.museum-headline em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: #ffffff;
+}
+
+/* Bottom Right Slide Switcher */
+.hero-nav-controls {
+  position: absolute;
+  bottom: 32px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 30;
+}
+
+.nav-arrow-round {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 12, 16, 0.85);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow-round:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #000;
+  transform: scale(1.06);
+}
+
+/* ==========================================================
+   FIXED FLOATING ROUND 3D ACTION BUTTONS (CALL & WHATSAPP)
+   ========================================================== */
+.floating-actions-dock {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 99999;
+}
+
+.float-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  user-select: none;
+}
+
+/* WhatsApp 3D Tactile Styling */
+.float-btn-whatsapp {
+  background: linear-gradient(145deg, #2fe066, #1fa84c);
+  color: #ffffff;
+  box-shadow: 
+    0 8px 16px rgba(37, 211, 102, 0.35),
+    0 14px 28px rgba(0, 0, 0, 0.6),
+    inset 0 2px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.float-btn-whatsapp:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 
+    0 12px 24px rgba(37, 211, 102, 0.5),
+    0 18px 36px rgba(0, 0, 0, 0.7),
+    inset 0 2px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.float-btn-whatsapp:active {
+  transform: translateY(2px) scale(0.96);
+}
+
+/* Call 3D Tactile Styling (Luxury Molten Gold) */
+.float-btn-call {
+  background: linear-gradient(145deg, #f5d77f, #b8860b);
+  color: #0b0c0e;
+  box-shadow: 
+    0 8px 16px rgba(212, 175, 55, 0.35),
+    0 14px 28px rgba(0, 0, 0, 0.6),
+    inset 0 2px 2px rgba(255, 255, 255, 0.75),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.float-btn-call:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 
+    0 12px 24px rgba(212, 175, 55, 0.55),
+    0 18px 36px rgba(0, 0, 0, 0.7),
+    inset 0 2px 3px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.float-btn-call:active {
+  transform: translateY(2px) scale(0.96);
+}
+
+.float-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: floatPulse 2.4s infinite;
+  pointer-events: none;
+}
+
+@keyframes floatPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.float-tooltip {
+  position: absolute;
+  right: 72px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: #0f1117;
+  color: #f4f3ef;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-hairline);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+.float-btn:hover .float-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ==========================================================
+   INTERACTIVE SECTIONS BELOW HERO
+   ========================================================== */
+.card-clean {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-clean:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+
+/* Before & After Slider */
 .ba-container {
   position: relative;
   width: 100%;
@@ -228,7 +407,6 @@ body:hover .custom-cursor { opacity: 1; }
   height: 100%;
   overflow: hidden;
   border-right: 2px solid var(--accent-gold);
-  box-shadow: 5px 0 25px rgba(212, 175, 55, 0.3);
 }
 
 .ba-after-wrapper img {
@@ -255,11 +433,11 @@ body:hover .custom-cursor { opacity: 1; }
   align-items: center;
   justify-content: center;
   cursor: ew-resize;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
   z-index: 10;
 }
 
-/* Infinite Marquee */
+/* Marquee */
 .marquee-wrapper {
   overflow: hidden;
   white-space: nowrap;
@@ -268,7 +446,7 @@ body:hover .custom-cursor { opacity: 1; }
 
 .marquee-content {
   display: flex;
-  animation: marqueeScroll 26s linear infinite;
+  animation: marqueeScroll 28s linear infinite;
 }
 
 @keyframes marqueeScroll {
@@ -276,21 +454,12 @@ body:hover .custom-cursor { opacity: 1; }
   100% { transform: translateX(-50%); }
 }
 
-.marquee-content:hover {
-  animation-play-state: paused;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-dark);
-}
-::-webkit-scrollbar-thumb {
-  background: #252833;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
+@media (max-width: 768px) {
+  .hero-pagination-vertical { display: none; }
+  .halo-ring { width: 300px; height: 300px; }
+  .museum-headline { font-size: 2.8rem; }
+  .sculpture-frame { height: 500px; }
+  .floating-actions-dock { bottom: 18px; right: 18px; gap: 12px; }
+  .float-btn { width: 52px; height: 52px; }
+  .float-tooltip { display: none; }
 }

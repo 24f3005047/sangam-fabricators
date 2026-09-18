@@ -1,4 +1,4 @@
-﻿# Product Requirement Document (PRD)
+# Product Requirement Document (PRD)
 
 ## Project Title
 **Sangam Fabricators (FibreCraft) — Business Website & Custom Enquiry Portal**
@@ -79,18 +79,26 @@ flowchart TD
 
 ---
 
-## 6. Functional & Technical Requirements
+## 6. Architecture, Functional & Technical Requirements
 
-### 6.1 Functional Features
-* **WhatsApp Integration**: Floating WhatsApp chat button pre-filled with messages like: *"Hi Sangam Fabricators, I have a custom reference image and need a price quote."*
-* **Reference Upload / Enquiry Form**: Form fields: Name, Phone Number, City, Retail vs. Wholesale select, Project Description, and Image Upload attachment.
-* **Click-to-Call & Location**: Sticky mobile-friendly call buttons for fast conversions.
-* **Fast Image Optimization**: Lazy loading and modern formats (WebP) to maintain high-speed loading even with heavy photo galleries.
+### 6.1 Architectural Principle: 100% Serverless Frontend (Zero Database Overhead)
+* **Architecture**: Standalone, lightweight, static client-side frontend.
+* **No Database / No Backend Server Required**: All dynamic interactions, estimates, and lead inquiries are processed directly client-side and routed instantly via secure deep-link integrations to WhatsApp API and direct tel-protocols.
+* **Zero Maintenance & Instant Hosting**: Can be deployed on GitHub Pages, Netlify, Vercel, Cloudflare Pages, or opened directly as static files with zero hosting maintenance cost.
 
-### 6.2 Non-Functional Requirements
+### 6.2 Key Interaction & Conversion Features
+* **Fixed 3D Floating Action Dock (Call & WhatsApp)**:
+  - Persistent, fixed-position circular floating buttons anchored at the bottom-right of the viewport across all pages/scroll depths.
+  - **3D Depth & Tactile Finish**: Multi-layer drop-shadows and inner bevel highlights providing a tangible 3D push-button physical effect on hover and click.
+  - **Instant Phone Calling Button**: Direct `tel:+91...` trigger to instantly initiate voice calls with the factory master craftsman.
+  - **WhatsApp Texting Button**: Pre-formatted WhatsApp link with animated pulse indicator and hovering tooltips for instant quotation & reference sharing.
+* **Interactive Reference Concierge**: Client-side project parameter builder that formats custom dimensions, volume (retail/wholesale), and specifications straight into WhatsApp chats without server forms or database storage.
+* **Reference-to-Reality Drag Slider**: Interactive visual comparison slider proving precision fidelity between raw photos and finished fibre sculptures.
+
+### 6.3 Non-Functional Requirements
 * **Mobile-First Responsive Design**: Over 70% of potential event decorators and retail buyers browse via mobile.
 * **SEO & Local Optimization**: Optimized for keywords like *"Fibre statues manufacturer Lucknow"*, *"Event entrance gate manufacturer UP"*, *"Custom resin statue maker"*, *"Wholesale FRP products Lucknow"*.
-* **Speed & Performance**: Lightweight clean code, optimized assets, CDN caching.
+* **Speed & Performance**: Lightweight clean code, modern CDN typography, hardware-accelerated animations with zero backend bottlenecks.
 
 ---
 

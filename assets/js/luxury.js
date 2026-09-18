@@ -1,159 +1,203 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lenis Smooth Scroll
-  let lenis;
-  try {
-    lenis = new Lenis({
-      duration: 1.3,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 2.0,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  } catch (e) {
-    console.warn('Lenis scroll smooth fallback applied:', e);
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.lucide) {
+    lucide.createIcons();
   }
 
-  // 2. Custom Cursor
-  const cursor = document.querySelector('.custom-cursor');
-  const follower = document.querySelector('.cursor-follower');
+  // ==========================================================
+  // SANDHILL STUDIO SLIDER ENGINE (SMOOTH 60FPS CSS TRANSFORMS)
+  // ==========================================================
+  const slidesData = [
+    {
+      img: 'assets/images/shiva_statue_hero.jpg',
+      sculptureTransform: 'translate3d(0, 0, 0) scale(1)',
+      haloTransform: 'translate3d(-50%, -50%, 0) scale(1)',
+      alt: 'Lord Shiva Meditating Statue'
+    },
+    {
+      img: 'assets/images/shiva_statue_hero.jpg',
+      sculptureTransform: 'translate3d(18vw, 0, 0) scale(1.05)',
+      haloTransform: 'translate3d(calc(-50% + 18vw), -50%, 0) scale(0.95)',
+      alt: 'Lord Shiva Spec Details'
+    },
+    {
+      img: 'assets/images/party_entrance_hero.jpg',
+      sculptureTransform: 'translate3d(14vw, 0, 0) scale(1.02)',
+      haloTransform: 'translate3d(calc(-50% + 14vw), -46%, 0) scale(1.15)',
+      alt: 'Royal Party Entrance Gate'
+    },
+    {
+      img: 'assets/images/ganesha_statue_hero.jpg',
+      sculptureTransform: 'translate3d(16vw, 0, 0) scale(1.02)',
+      haloTransform: 'translate3d(calc(-50% + 16vw), -50%, 0) scale(1.05)',
+      alt: 'Lord Ganesha Divine Idol'
+    }
+  ];
 
-  if (cursor && follower) {
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
+  const sculptureFrame = document.getElementById('sculptureFrame');
+  const sculptureMedia = document.getElementById('sculptureMedia');
+  const haloRing = document.getElementById('haloRing');
+  const slideBlocks = document.querySelectorAll('.slide-content-block');
+  const dashes = document.querySelectorAll('.progress-dash-item');
+  const slideCounter = document.getElementById('slideCounter');
+  const prevBtn = document.getElementById('prevSlideBtn');
+  const nextBtn = document.getElementById('nextSlideBtn');
 
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.transform = 	ranslate(px, px);
+  let currentSlide = 0;
+  const totalSlides = slidesData.length;
+
+  function setSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentSlide = index;
+
+    const data = slidesData[currentSlide];
+
+    // Smooth transform of sculpture & halo ring
+    if (sculptureFrame) {
+      sculptureFrame.style.transform = data.sculptureTransform;
+    }
+    if (haloRing) {
+      haloRing.style.transform = data.haloTransform;
+    }
+
+    // Update Image smoothly
+    if (sculptureMedia && sculptureMedia.getAttribute('src') !== data.img) {
+      sculptureMedia.style.opacity = '0.4';
+      setTimeout(() => {
+        sculptureMedia.src = data.img;
+        sculptureMedia.alt = data.alt;
+        sculptureMedia.style.opacity = '1';
+      }, 150);
+    }
+
+    // Toggle active typography slide
+    slideBlocks.forEach((block, idx) => {
+      if (idx === currentSlide) {
+        block.classList.add('active');
+      } else {
+        block.classList.remove('active');
+      }
     });
 
-    function renderFollower() {
-      followerX += (mouseX - followerX) * 0.15;
-      followerY += (mouseY - followerY) * 0.15;
-      follower.style.transform = 	ranslate(px, px);
-      requestAnimationFrame(renderFollower);
-    }
-    renderFollower();
+    // Update left indicator
+    dashes.forEach((dash, idx) => {
+      if (idx === currentSlide) {
+        dash.classList.add('active');
+      } else {
+        dash.classList.remove('active');
+      }
+    });
 
-    // Hover effect on links and interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, .interactive-hover');
-    interactiveElements.forEach((el) => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+    // Update counter text
+    if (slideCounter) {
+      slideCounter.textContent = '0' + (currentSlide + 1) + ' / 0' + totalSlides;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => setSlide(currentSlide - 1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => setSlide(currentSlide + 1));
+  }
+
+  dashes.forEach(dash => {
+    dash.addEventListener('click', () => {
+      const idx = parseInt(dash.getAttribute('data-slide-index'), 10);
+      if (!isNaN(idx)) setSlide(idx);
+    });
+  });
+
+  // Autoplay presentation every 7 seconds, pauses on interaction
+  let autoTimer = setInterval(() => setSlide(currentSlide + 1), 7000);
+  const heroMuseum = document.getElementById('heroMuseum');
+  if (heroMuseum) {
+    heroMuseum.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    heroMuseum.addEventListener('mouseleave', () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => setSlide(currentSlide + 1), 7000);
     });
   }
 
-  // 3. Before & After Slider Logic
+  // ==========================================================
+  // BEFORE & AFTER COMPARISON SLIDER (LIGHTWEIGHT & SMOOTH)
+  // ==========================================================
   const baContainer = document.getElementById('referenceSlider');
   if (baContainer) {
     const afterWrapper = baContainer.querySelector('.ba-after-wrapper');
     const afterImg = baContainer.querySelector('.ba-after-wrapper img');
     const handle = baContainer.querySelector('.ba-handle');
-    let isDragging = false;
+    let isDown = false;
 
-    function updateSlider(clientX) {
+    function moveSlider(clientX) {
       const rect = baContainer.getBoundingClientRect();
-      let offsetX = clientX - rect.left;
-      if (offsetX < 0) offsetX = 0;
-      if (offsetX > rect.width) offsetX = rect.width;
-
-      const percentage = (offsetX / rect.width) * 100;
-      afterWrapper.style.width = ${percentage}%;
-      handle.style.left = ${percentage}%;
-      if (afterImg) {
-        afterImg.style.width = ${rect.width}px;
-      }
+      let x = clientX - rect.left;
+      if (x < 0) x = 0;
+      if (x > rect.width) x = rect.width;
+      const pct = (x / rect.width) * 100;
+      afterWrapper.style.width = pct + '%';
+      handle.style.left = pct + '%';
+      if (afterImg) afterImg.style.width = rect.width + 'px';
     }
 
-    // Set initial full width of internal image
     window.addEventListener('resize', () => {
-      if (afterImg) afterImg.style.width = ${baContainer.getBoundingClientRect().width}px;
+      if (afterImg) afterImg.style.width = baContainer.getBoundingClientRect().width + 'px';
     });
     setTimeout(() => {
-      if (afterImg) afterImg.style.width = ${baContainer.getBoundingClientRect().width}px;
+      if (afterImg) afterImg.style.width = baContainer.getBoundingClientRect().width + 'px';
     }, 100);
 
-    handle.addEventListener('mousedown', () => isDragging = true);
     baContainer.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      updateSlider(e.clientX);
+      isDown = true;
+      moveSlider(e.clientX);
     });
-
-    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mouseup', () => isDown = false);
     window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      updateSlider(e.clientX);
+      if (!isDown) return;
+      moveSlider(e.clientX);
     });
 
-    // Touch support for mobile devices
-    handle.addEventListener('touchstart', () => isDragging = true);
     baContainer.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      if (e.touches[0]) updateSlider(e.touches[0].clientX);
+      isDown = true;
+      if (e.touches[0]) moveSlider(e.touches[0].clientX);
     });
-    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('touchend', () => isDown = false);
     window.addEventListener('touchmove', (e) => {
-      if (!isDragging || !e.touches[0]) return;
-      updateSlider(e.touches[0].clientX);
+      if (!isDown || !e.touches[0]) return;
+      moveSlider(e.touches[0].clientX);
     });
   }
 
-  // 4. GSAP & ScrollTrigger Animations
-  if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
+  // ==========================================================
+  // PORTFOLIO FILTER TABS
+  // ==========================================================
+  const filterButtons = document.querySelectorAll('.filter-btn, .filter-pill');
+  const portfolioItems = document.querySelectorAll('.portfolio-card, .portfolio-item-card');
 
-    // Hero Stagger Reveal
-    gsap.from('.hero-headline span', {
-      opacity: 0,
-      y: 45,
-      stagger: 0.12,
-      duration: 1.2,
-      ease: 'power4.out',
-      delay: 0.2
-    });
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active', 'border-[#d4af37]', 'text-[#d4af37]');
+        b.classList.add('border-white/10', 'text-[#9aa0a6]');
+      });
+      btn.classList.add('active', 'border-[#d4af37]', 'text-[#d4af37]');
+      btn.classList.remove('border-white/10', 'text-[#9aa0a6]');
 
-    gsap.from('.hero-sub', {
-      opacity: 0,
-      y: 20,
-      duration: 1.0,
-      ease: 'power3.out',
-      delay: 0.7
-    });
-
-    gsap.from('.hero-cta-group', {
-      opacity: 0,
-      y: 20,
-      duration: 1.0,
-      ease: 'power3.out',
-      delay: 0.9
-    });
-
-    // Reveal elements on scroll
-    const revealCards = document.querySelectorAll('.scroll-reveal');
-    revealCards.forEach((card) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: 'power3.out'
+      const filter = btn.getAttribute('data-filter');
+      portfolioItems.forEach(item => {
+        const cat = item.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
-  }
+  });
 
-  // 5. Reference Concierge Estimator -> Direct WhatsApp Generator
+  // ==========================================================
+  // REFERENCE CONCIERGE -> WHATSAPP LINK GENERATOR
+  // ==========================================================
   const conciergeForm = document.getElementById('conciergeForm');
   if (conciergeForm) {
     const scaleSlider = document.getElementById('scaleSlider');
@@ -161,54 +205,32 @@
 
     if (scaleSlider && scaleDisplay) {
       scaleSlider.addEventListener('input', (e) => {
-        scaleDisplay.textContent = ${e.target.value} Feet;
+        scaleDisplay.textContent = e.target.value + ' Feet';
       });
     }
 
     conciergeForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const category = document.querySelector('input[name="conciergeCategory"]:checked')?.value || 'Custom Project';
-      const scale = scaleSlider ? ${scaleSlider.value} Feet : 'Not specified';
-      const orderType = document.querySelector('input[name="orderType"]:checked')?.value || 'Retail (Single Custom)';
+      const category = document.querySelector('input[name=\"conciergeCategory\"]:checked')?.value || 'Custom Project';
+      const scale = scaleSlider ? scaleSlider.value + ' Feet' : 'Not specified';
+      const orderType = document.querySelector('input[name=\"orderType\"]:checked')?.value || 'Retail (Single Piece)';
       const clientName = document.getElementById('clientName')?.value || 'Client';
       const clientCity = document.getElementById('clientCity')?.value || 'Lucknow / India';
       const details = document.getElementById('projectDetails')?.value || 'Custom reference discussion';
 
-      const waText = encodeURIComponent(
-        *✨ NEW BESPOKE ENQUIRY — SANGAM FABRICATORS*\n\n +
-        • *Client Name:* \n +
-        • *City / Location:* \n +
-        • *Order Category:* \n +
-        • *Approx Scale/Height:* \n +
-        • *Order Volume:* \n +
-        • *Requirement Details:* \n\n +
-        _I am ready to share my reference photo/sketch for the best factory quotation._
-      );
+      const waMsg = 
+        '*✨ NEW ENQUIRY — SANGAM FABRICATORS (LUCKNOW)*\n\n' +
+        '• *Client Name:* ' + clientName + '\n' +
+        '• *City:* ' + clientCity + '\n' +
+        '• *Category:* ' + category + '\n' +
+        '• *Approx Scale:* ' + scale + '\n' +
+        '• *Order Volume:* ' + orderType + '\n' +
+        '• *Requirement Details:* ' + details + '\n\n' +
+        '_I am sharing my reference photo/sketch for direct factory quotation._';
 
-      const phone = "919450000000"; // Replace with client's actual phone number
-      window.open(https://wa.me/?text=, '_blank');
+      const phone = '919450000000'; // Target factory owner phone
+      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank');
     });
   }
-
-  // 6. Portfolio Category Filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active', 'border-accent-gold', 'text-accent-gold'));
-      btn.classList.add('active', 'border-accent-gold', 'text-accent-gold');
-
-      const filter = btn.getAttribute('data-filter');
-      portfolioItems.forEach(item => {
-        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'block';
-          gsap.fromTo(item, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4 });
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
 });

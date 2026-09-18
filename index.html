@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangam Fabricators | Bespoke Resin & Fibre Artisans Lucknow</title>
+  <meta name="description" content="Premier Lucknow atelier for custom fibre & resin statues, monumental party entrances, divine religious idols, and architectural sculptures at direct factory rates.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#050608',
+              surface: '#0d0f14',
+              card: '#12141c',
+              gold: '#d4af37',
+              goldLight: '#f5d77f'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cinzel"', 'serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles (Zero Lag, 60fps Native) -->
+  <link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body class="bg-[#050608] text-[#f4f3ef] antialiased selection:bg-[#d4af37] selection:text-black">
+
+  <!-- Minimalist Sandhill Studio / LOURVE Header -->
+  <header class="lourve-header">
+    <div class="w-full max-w-[1380px] mx-auto px-8 lg:px-14 flex items-center justify-between">
+      
+      <!-- Brand Logomark (Exact Serif Style from Pinterest) -->
+      <a href="#" class="flex items-center gap-3 group">
+        <span class="font-serif text-2xl lg:text-3xl font-normal tracking-[0.24em] text-white uppercase group-hover:text-[#d4af37] transition-colors">SANGAM</span>
+      </a>
+
+      <!-- Minimal Spaced Navigation Links -->
+      <nav class="hidden md:flex items-center gap-10 font-mono text-[11px] uppercase tracking-[0.25em] text-[#9aa0a6]">
+        <a href="#heroMuseum" class="text-white hover:text-[#d4af37] transition-colors">HOME</a>
+        <a href="#portfolio" class="hover:text-white transition-colors">COLLECTION</a>
+        <a href="#reference-lab" class="hover:text-white transition-colors">REFERENCE LAB</a>
+        <a href="#wholesale" class="hover:text-white transition-colors">WHOLESALE</a>
+        <a href="#concierge" class="hover:text-white transition-colors">ENQUIRE</a>
+      </nav>
+
+      <!-- Right Action & 3x3 Dot Grid Icon -->
+      <div class="flex items-center gap-6">
+        <a href="#concierge" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-mono uppercase tracking-widest font-semibold border border-white/20 hover:border-[#d4af37] text-white hover:text-[#d4af37] transition-all">
+          <span>Quote</span>
+        </a>
+        <!-- Minimalist 3x3 Dot Grid Icon (From Pinterest Design) -->
+        <div class="w-6 h-6 grid grid-cols-3 gap-1 cursor-pointer opacity-75 hover:opacity-100 transition-opacity" title="Menu">
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+          <div class="w-1 h-1 bg-white rounded-full"></div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================
+         SANDHILL STUDIO / LOURVE EXACT HERO EXPERIENCE
+         ======================================================= -->
+    <section id="heroMuseum" class="hero-museum">
+      
+      <!-- Full-Height Vertical Blueprint Lines (Exact Pinterest Design) -->
+      <div class="vertical-grid-lines">
+        <div class="grid-col-line"></div>
+        <div class="grid-col-line"></div>
+        <div class="grid-col-line"></div>
+        <div class="grid-col-line"></div>
+        <div class="grid-col-line"></div>
+        <div class="grid-col-line"></div>
+      </div>
+
+      <!-- Glowing White Neon Halo Ring Behind Sculpture -->
+      <div class="halo-ring" id="haloRing"></div>
+
+      <!-- Central 3D Sculpture Stage -->
+      <div class="sculpture-stage">
+        <div class="sculpture-frame" id="sculptureFrame">
+          <img id="sculptureMedia" src="assets/images/shiva_statue_hero.jpg" alt="Lord Shiva Meditating Statue" class="sculpture-media">
+        </div>
+      </div>
+
+      <!-- Left Vertical Progress Dashboard (Exact Pinterest Design) -->
+      <div class="hero-pagination-vertical" aria-label="Slide Indicator">
+        <div class="progress-dash-item active" data-slide-index="0" title="Atelier Overview"></div>
+        <div class="progress-dash-item" data-slide-index="1" title="Mahadev Deity Specifications"></div>
+        <div class="progress-dash-item" data-slide-index="2" title="Royal Party Entrance Gates"></div>
+        <div class="progress-dash-item" data-slide-index="3" title="Any Reference to Reality"></div>
+      </div>
+
+      <!-- Typography Content Layer (Overlaying Like Pinterest) -->
+      <div class="hero-content-layer">
+        
+        <!-- SLIDE 1: "Museum of Ancient Art" Style Opening -->
+        <div class="slide-content-block active justify-between items-end w-full" id="slideBlock0">
+          <div class="max-w-2xl">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-4">// LUCKNOW COMPOSITE ATELIER</span>
+            <h1 class="museum-headline">
+              Atelier <br>
+              <em>of Sacred</em> <br>
+              Statues
+            </h1>
+          </div>
+          <div class="max-w-xs text-right hidden md:block pb-2">
+            <p class="text-xs font-light text-[#9aa0a6] leading-relaxed">
+              Sangam Fabricators is Lucknow's master composite workshop specializing in monumental religious idols, grand wedding gates, and bespoke references at direct factory rates.
+            </p>
+            <div class="mt-4 font-mono text-[11px] text-white/60 tracking-widest uppercase">
+              26.8467° N, 80.9462° E // DIRECT FACTORY
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: "Alexandros of Antioch / 203 cm" Spec Details -->
+        <div class="slide-content-block items-center" id="slideBlock1">
+          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// MONUMENTAL SACRED DEITY</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
+              Lord Shiva (Mahadev)
+            </h2>
+            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
+              Handcrafted in high-density isophthalic resin, triple-weave fiberglass mat, and antique bronze patina with weather-shield clearcoat.
+            </p>
+
+            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
+              <div>
+                <div class="text-2xl font-bold text-white tracking-wider">180 cm (72 in)</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Customizable Scale (2ft to 35ft+)</div>
+              </div>
+              <div>
+                <div class="text-base font-medium text-[#d4af37] tracking-wider">Zero Mold Deviation Guarantee</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">100% Monsoonal & Sun Waterproof</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: Party Entrances & Gates -->
+        <div class="slide-content-block items-center" id="slideBlock2">
+          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// WEDDING & EVENT SECTOR</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
+              Royal Party Entrances
+            </h2>
+            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
+              Palatial carved entrance gates, Victorian arches, and ornate pillars engineered for tent house decorators and wedding venues.
+            </p>
+
+            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
+              <div>
+                <div class="text-2xl font-bold text-white tracking-wider">28 ft Modular Portal</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Rapid 2-Hour Clip Assembly</div>
+              </div>
+              <div>
+                <div class="text-base font-medium text-[#d4af37] tracking-wider">Wholesale Decorator Rates</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Reusable for 150+ Events • Ultra Lightweight</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: "Discovery of a Masterpiece" / Custom Reference -->
+        <div class="slide-content-block items-center" id="slideBlock3">
+          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// REFERENCE TO REALITY</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
+              Any Reference Built
+            </h2>
+            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
+              Send us any photo, drawing, or Pinterest reference. Our master mold artisans create identical custom statues, portraits, or event gates.
+            </p>
+
+            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
+              <div>
+                <div class="text-2xl font-bold text-white tracking-wider">Unbeatable Pricing</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Direct Factory Cost • Retail & Wholesale</div>
+              </div>
+              <div>
+                <div class="text-base font-medium text-[#d4af37] tracking-wider">Pan-India Crated Dispatch</div>
+                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Safely Delivered Across UP & India</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slide Navigation Controls (Bottom Right Floating) -->
+      <div class="hero-nav-controls">
+        <button class="nav-arrow-round" id="prevSlideBtn" aria-label="Previous Slide">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <span class="font-mono text-xs text-white/70 tracking-widest px-2" id="slideCounter">01 / 04</span>
+        <button class="nav-arrow-round" id="nextSlideBtn" aria-label="Next Slide">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Infinite Capability Marquee Strip -->
+    <section class="py-6 bg-[#0c0e14] border-b border-white/[0.06] overflow-hidden">
+      <div class="marquee-wrapper font-mono text-xs uppercase tracking-[0.25em] text-[#9aa0a6]">
+        <div class="marquee-content flex items-center gap-12">
+          <span>• Royal Wedding Gates</span>
+          <span class="text-[#d4af37]">• Divine God Statues</span>
+          <span>• Theme Park Sculptures</span>
+          <span class="text-[#d4af37]">• 3D Portrait Busts</span>
+          <span>• Architectural Relief Domes</span>
+          <span class="text-[#d4af37]">• Event Mandap Columns</span>
+          <span>• Lightweight Composite Castings</span>
+          <span class="text-[#d4af37]">• Custom Reference Fabrication</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="reference-lab" class="py-28 relative border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// The Core Capability</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
+              Reference <span class="font-serif italic font-normal text-gold-gradient">to</span> Reality.
+            </h2>
+          </div>
+          <p class="max-w-md text-sm text-[#9aa0a6] font-light leading-relaxed">
+            Drag the divider below. You share a phone photo, 2D sketch, or Pinterest reference — our master modelers shape it into durable, hand-lacquered fibre composite down to the exact detail.
+          </p>
+        </div>
+        <!-- Interactive Comparison Slider -->
+        <div class="ba-container group cursor-ew-resize scroll-reveal" id="referenceSlider">
+          <img src="assets/images/shiva_statue.jpg" alt="Client Reference Photo of Deity" class="ba-before-img">
+          <div class="absolute bottom-6 right-6 z-10 bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-widest text-white/90">
+            [Right] Client's Reference Photo
+          </div>
+          <div class="ba-after-wrapper">
+            <img src="assets/images/shiva_statue_hero.jpg" alt="Finished Handcrafted Fibre Sculpture">
+            <div class="absolute bottom-6 left-6 z-10 bg-[#d4af37] text-black font-semibold px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-widest shadow-lg">
+              [Left] Our Finished Fibre Sculpture
+            </div>
+          </div>
+          <div class="ba-handle">
+            <i data-lucide="chevrons-left-right" class="w-4 h-4 text-[#d4af37]"></i>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-between text-xs font-mono text-[#9aa0a6] tracking-wider">
+          <div><i data-lucide="info" class="w-3.5 h-3.5 inline mr-1 text-[#d4af37]"></i> DRAG THE SLIDER HORIZONTALLY TO COMPARE ACCURACY</div>
+          <div>ZERO MOLDING DEVIATION GUARANTEE</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-28 relative border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// Selected Portfolio & Works</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
+              Curated <span class="font-serif italic font-normal text-gold-gradient">Masterpieces</span>
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wider">
+            <button class="filter-btn px-4 py-2 rounded-full border border-[#d4af37] text-[#d4af37] transition-all active" data-filter="all">All Works</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-white/10 hover:border-[#d4af37] transition-all text-[#9aa0a6]" data-filter="religious">God Statues</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-white/10 hover:border-[#d4af37] transition-all text-[#9aa0a6]" data-filter="events">Party Entrances</button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-white/10 hover:border-[#d4af37] transition-all text-[#9aa0a6]" data-filter="custom">Architectural & Murals</button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Item 1: God Statue (Monumental Mahadev Shiva) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="religious">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/shiva_statue.jpg" alt="Monumental Mahadev Shiva Fibre Idol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                21 FT MONUMENT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Religious Sacred Idol</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Monumental Mahadev Shiva Idol</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Triple-layer E-glass fibre composite matrix with antique bronze lacquer. Built for outdoor riverbanks, temple courtyards, and open sanctums. 100% monsoonal proof.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Weather Sealed</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Monumental%20Mahadev%20Shiva%20Idol." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Party Entrance (Royal Palatial Wedding Portal) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/wedding_gate.jpg" alt="Royal Palatial Wedding & Event Entrance Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                MODULAR 28 FT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Party & Event Entrance</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Royal Palatial Wedding Portal</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">High-durability interlocking lightweight fibre archway with gold fluted pillars. Built for rapid 90-minute setup by tent house decorators; re-usable for 150+ wedding seasons.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="package" class="w-3.5 h-3.5"></i> Wholesale Favorite</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Royal%20Palatial%20Wedding%20Portal." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: God Statue (Grand Ganesha Temple Idol) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="religious">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/ganesha_statue.jpg" alt="Grand Ganesha Temple Idol Workshop Display" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                15 FT MONUMENT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Religious Sacred Idol</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Grand Ganesha Temple Idol</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Intricate filigree ornaments, modak hand detail, and high-gloss metallic gilding with UV-resistant clearcoat. Ideal for public pandals, temples, and luxury residences.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="sun" class="w-3.5 h-3.5"></i> UV-Protected</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Grand%20Ganesha%20Temple%20Idol." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Party Entrance (Nawabi Heritage Palace Gate) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/palace_gate.jpg" alt="Nawabi Heritage Lucknow Palace Entrance Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                HERITAGE 32 FT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Party & Event Entrance</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Nawabi Heritage Palace Gate</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Inspired by Lucknow's historic architectural gateways. Features ornate jali archways, royal spires, and reinforced steel-core FRP frames engineered for high wind load stability.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="wind" class="w-3.5 h-3.5"></i> High Wind Rated</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Nawabi%20Heritage%20Palace%20Gate." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: God Statue (Lord Hanuman Temple Idol) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="religious">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/hanuman_statue.jpg" alt="Sankat Mochan Hanuman Temple Idol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                10 FT SACRED IDOL
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Religious Sacred Idol</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Sankat Mochan Hanuman Statue</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Vibrant sindoori ochre finish over resin composite matrix. Sculpted with divine muscular anatomy and protective gada weapon for ashrams, roadside sanctums, and temples.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="shield" class="w-3.5 h-3.5"></i> Impact Resistant</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Sankat%20Mochan%20Hanuman%20Statue." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Party Entrance (Floral Theme Gala Portal) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/floral_portal.jpg" alt="Floral Theme Luxury Event Gateway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                MODULAR 24 FT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Party & Event Entrance</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Floral Theme Luxury Event Gateway</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Engineered with built-in hollow structural channels for LED wash lights, hanging floral chandeliers, and quick-clip banner frames. Easy transport on standard utility pickups.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Rapid Dismantle</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Floral%20Theme%20Luxury%20Gateway." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7: God Statue (Maa Durga Handcrafted Navratri Murti) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="religious">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/durga_statue.jpg" alt="Maa Durga Mahishasurmardini Murti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                CUSTOM 9 FT
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Religious Sacred Idol</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Maa Durga Handcrafted Murti</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Ten-armed divine idol sculpted with traditional weaponry, lion vahana, and gold foil embossed mukut. Lightweight composite enables effortless ceremonial positioning.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="award" class="w-3.5 h-3.5"></i> Master Artisan Cut</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Maa%20Durga%20Murti." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8: God Statue (Radha Krishna Divine Murti) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="religious">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/krishna_statue.jpg" alt="Radha Krishna Divine Temple Murti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                7 FT SANCTUM
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Religious Sacred Idol</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Radha Krishna Temple Murti</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Fine marble-dust and poly-resin composite with lifelike divine expressions, flowing apparel drapery, and brass flute detail. Retains permanent showroom luster.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Marble-Dust Finish</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Radha%20Krishna%20Temple%20Murti." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 9: Architectural & Custom Sculpture (Serene Buddha Sanctuary) -->
+          <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="custom">
+            <div class="h-80 overflow-hidden relative bg-[#08090d]">
+              <img src="assets/images/buddha_statue.jpg" alt="Serene Buddha Sanctuary Idol & Reliefs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#d4af37] border border-white/10">
+                8 FT CUSTOM
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#d4af37]">Architectural & Murals</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">Serene Buddha Sanctuary Sculpture</h3>
+              <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Architectural meditative sculpture and ornamental wall relief carved in textured stone-patina fibre composite. Favored by luxury resorts, wellness sanctuaries, and villa facades.</p>
+              <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Zero Maintenance</span>
+                <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Buddha%20Sanctuary%20Sculpture." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d4af37] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="material" class="py-28 relative bg-[#0c0e14] border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="max-w-3xl mb-16">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// Material Science & Integrity</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
+            Superior <span class="font-serif italic font-normal text-gold-gradient">Durability</span> Over Stone & Plaster.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-2xl glass-panel border border-white/[0.08] scroll-reveal">
+            <div class="w-12 h-12 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-6">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">Weatherproof Monoliths</h3>
+            <p class="text-sm text-[#9aa0a6] mt-3 font-light leading-relaxed">
+              Unlike plaster of paris (POP) or soft wood which decomposes in rain, our FRP composite handles harsh Indian monsoons, heatwaves up to 48°C, and freezing damp without swelling or chipping.
+            </p>
+          </div>
+          <div class="p-8 rounded-2xl glass-panel border border-white/[0.08] scroll-reveal">
+            <div class="w-12 h-12 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-6">
+              <i data-lucide="feather" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">80% Lighter Than Stone</h3>
+            <p class="text-sm text-[#9aa0a6] mt-3 font-light leading-relaxed">
+              Achieve monumental grandiosity without heavy cranes. A 20ft fibre entrance gate can be mounted by four people, dramatically lowering transport freight and setup overheads.
+            </p>
+          </div>
+          <div class="p-8 rounded-2xl glass-panel border border-white/[0.08] scroll-reveal">
+            <div class="w-12 h-12 rounded-lg bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-6">
+              <i data-lucide="badge-percent" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">Direct Lucknow Factory Rates</h3>
+            <p class="text-sm text-[#9aa0a6] mt-3 font-light leading-relaxed">
+              Zero distributor commissions or showroom markups. We procure raw isophthalic polymer and roving glass fiber directly from prime petrochemical distributors, giving you the best price anywhere in UP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="concierge" class="py-28 relative">
+      <div class="max-w-5xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// The Custom Estimator</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
+            The Reference <span class="font-serif italic font-normal text-gold-gradient">Concierge</span>
+          </h2>
+          <p class="mt-4 text-[#9aa0a6] text-sm max-w-xl mx-auto font-light">
+            Configure your project parameters below to instantly generate a factory-direct WhatsApp inquiry with our master artisan in Lucknow.
+          </p>
+        </div>
+        <form id="conciergeForm" class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 space-y-10 scroll-reveal">
+          <div>
+            <label class="block font-mono text-xs uppercase tracking-widest text-[#d4af37] mb-4">
+              Step 1: Select Product Domain
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <label class="cursor-pointer">
+                <input type="radio" name="conciergeCategory" value="Party & Wedding Entrances" checked class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 text-center transition-all">
+                  <i data-lucide="party-popper" class="w-5 h-5 mx-auto mb-2 text-[#d4af37]"></i>
+                  <span class="text-xs font-mono uppercase tracking-wider block text-white">Event Gate</span>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="conciergeCategory" value="God Statues & Religious Idols" class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 text-center transition-all">
+                  <i data-lucide="flower" class="w-5 h-5 mx-auto mb-2 text-[#d4af37]"></i>
+                  <span class="text-xs font-mono uppercase tracking-wider block text-white">God Statue</span>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="conciergeCategory" value="Custom Sculpture / Portrait" class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 text-center transition-all">
+                  <i data-lucide="user" class="w-5 h-5 mx-auto mb-2 text-[#d4af37]"></i>
+                  <span class="text-xs font-mono uppercase tracking-wider block text-white">Custom Portrait</span>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="conciergeCategory" value="Architectural Relief / Mural" class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 text-center transition-all">
+                  <i data-lucide="landmark" class="w-5 h-5 mx-auto mb-2 text-[#d4af37]"></i>
+                  <span class="text-xs font-mono uppercase tracking-wider block text-white">Facade & Mural</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <label class="font-mono text-xs uppercase tracking-widest text-[#d4af37]">
+                Step 2: Approximate Height / Scale
+              </label>
+              <span id="scaleDisplay" class="font-mono text-sm font-bold text-white bg-white/10 px-3 py-1 rounded-full">10 Feet</span>
+            </div>
+            <input type="range" id="scaleSlider" min="2" max="35" value="10" class="w-full accent-[#d4af37] cursor-pointer bg-neutral-800 h-2 rounded-lg">
+            <div class="flex justify-between text-[10px] font-mono text-[#5f6368] mt-2">
+              <span>2ft (Table/Small)</span>
+              <span>10ft (Standard Portal)</span>
+              <span>35ft+ (Monumental Installation)</span>
+            </div>
+          </div>
+          <div>
+            <label class="block font-mono text-xs uppercase tracking-widest text-[#d4af37] mb-4">
+              Step 3: Order Quantity Type
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="cursor-pointer">
+                <input type="radio" name="orderType" value="Retail (Single Custom Piece)" checked class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 flex items-center gap-4 transition-all">
+                  <div class="w-4 h-4 rounded-full border border-[#d4af37] peer-checked:bg-[#d4af37]"></div>
+                  <div>
+                    <span class="text-xs font-mono uppercase tracking-wider block text-white font-bold">Retail Client</span>
+                    <span class="text-[11px] text-[#9aa0a6]">Single custom piece or personal order</span>
+                  </div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="orderType" value="Wholesale / B2B Commercial Order" class="peer sr-only">
+                <div class="p-4 rounded-xl border border-white/10 peer-checked:border-[#d4af37] peer-checked:bg-[#d4af37]/10 flex items-center gap-4 transition-all">
+                  <div class="w-4 h-4 rounded-full border border-[#d4af37] peer-checked:bg-[#d4af37]"></div>
+                  <div>
+                    <span class="text-xs font-mono uppercase tracking-wider block text-white font-bold">Wholesale / Event Decorator</span>
+                    <span class="text-[11px] text-[#9aa0a6]">Bulk orders, tent houses, reseller discount</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Your Name</label>
+              <input type="text" id="clientName" required placeholder="e.g. Rahul Sharma" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+            </div>
+            <div>
+              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">City / Location</label>
+              <input type="text" id="clientCity" required placeholder="e.g. Lucknow, Kanpur, Delhi" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Describe Your Reference Image or Requirement</label>
+              <textarea id="projectDetails" rows="3" placeholder="e.g. I have a reference photo of an ornate temple gate with two elephants on the sides..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#d4af37]"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="w-full py-5 rounded-full text-xs font-mono uppercase tracking-[0.2em] font-bold btn-liquid-gold flex items-center justify-center gap-3">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Send Reference on WhatsApp & Get Instant Quote</span>
+          </button>
+          <div class="text-center font-mono text-[11px] text-[#5f6368] flex items-center justify-center gap-2">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-[#d4af37]"></i>
+            <span>Direct conversation with factory owner. No middlemen, pure workshop pricing.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="wholesale" class="py-24 relative bg-[#0d0f15] border-t border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div class="max-w-xl">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// Commercial Supply Chain</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white tracking-tight leading-tight">
+              Event Planners & Tent House <span class="font-serif italic font-normal text-gold-gradient">Wholesale Guild</span>
+            </h2>
+            <p class="text-sm text-[#9aa0a6] mt-4 font-light leading-relaxed">
+              We operate large curing bays in Lucknow capable of fulfilling 20+ grand entrance sets simultaneously. Get priority batch manufacturing, modular transport packaging, and unbranded catalogue support for your event agency.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-white/90">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#d4af37]"></i> Special Bulk Pricing</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#d4af37]"></i> Modular Dismantle Fittings</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#d4af37]"></i> Rapid Turnaround Guarantee</div>
+            </div>
+          </div>
+          <div class="w-full lg:w-auto">
+            <div class="p-8 rounded-2xl glass-panel border border-[#d4af37]/30 text-center max-w-sm">
+              <div class="font-serif text-3xl text-white font-bold">Direct Call</div>
+              <div class="text-xs font-mono uppercase tracking-widest text-[#9aa0a6] mt-1">Speak with the Master Craftsman</div>
+              <div class="my-6">
+                <a href="tel:+919450000000" class="text-2xl font-mono font-bold text-[#d4af37] hover:underline block tracking-wider">+91 94500 XXXXX</a>
+              </div>
+              <a href="#concierge" class="w-full py-3 rounded-full text-xs font-mono uppercase tracking-wider font-semibold border border-white/20 hover:border-[#d4af37] text-white hover:text-[#d4af37] transition-all block">
+                Request B2B Catalogue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pt-20 pb-12 bg-black border-t border-white/[0.08] relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-white/[0.08]">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-sm border border-[#d4af37]/40 flex items-center justify-center bg-black/40">
+              <span class="font-serif text-[#d4af37] font-bold text-base">S</span>
+            </div>
+            <span class="font-display font-bold text-lg tracking-widest uppercase text-white">Sangam Fabricators</span>
+          </div>
+          <p class="text-xs text-[#9aa0a6] font-light max-w-sm leading-relaxed">
+            Specialist composite manufacturing studio based in Lucknow, Uttar Pradesh. Transforming liquid resins and aerospace-grade fibreglass into timeless spiritual idols, palatial event entrances, and bespoke architectural art.
+          </p>
+          <div class="mt-4 font-mono text-[11px] text-[#d4af37] tracking-widest uppercase">
+            Lucknow Workshop • Uttar Pradesh, India
+          </div>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Manufacture Capabilities</h4>
+          <ul class="space-y-2 text-xs font-light text-[#9aa0a6]">
+            <li>God Statues (3ft to 35ft)</li>
+            <li>Victorian & Royal Gates</li>
+            <li>Event Theme Portals</li>
+            <li>Custom Busts & Relief Murals</li>
+            <li>Wholesale Tent House Decor</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Atelier Connect</h4>
+          <ul class="space-y-2 text-xs font-light text-[#9aa0a6]">
+            <li>WhatsApp Reference Hotline</li>
+            <li>Pan-India Delivery Logistics</li>
+            <li>B2B Contractor Pricing</li>
+            <li>Custom 3D CAD to FRP Castings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#5f6368]">
+        <div>© 2026 SANGAM FABRICATORS (FIBRECRAFT). ALL RIGHTS RESERVED.</div>
+        <div class="flex items-center gap-6">
+          <span>DESIGNED BY OM SHIV VERMA</span>
+          <a href="#" class="hover:text-white transition-colors">BACK TO TOP ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed Round 3D Floating Action Buttons (Phone Call & WhatsApp Texting) -->
+  <div class="floating-actions-dock" aria-label="Quick Connect Actions">
+    
+    <!-- Direct Phone Call 3D Button -->
+    <a href="tel:+919450000000" class="float-btn float-btn-call" aria-label="Call Sangam Fabricators Factory Directly">
+      <i data-lucide="phone-call" class="w-6 h-6 stroke-[2.2]"></i>
+      <span class="float-tooltip">Call Factory Direct</span>
+    </a>
+
+    <!-- Direct WhatsApp Texting 3D Button -->
+    <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20want%20to%20enquire%20about%20custom%20fibre%20and%20resin%20products%20and%20share%20a%20reference." target="_blank" rel="noopener noreferrer" class="float-btn float-btn-whatsapp" aria-label="Chat on WhatsApp">
+      <div class="float-pulse-ring"></div>
+      <i data-lucide="message-circle" class="w-7 h-7 stroke-[2.2]"></i>
+      <span class="float-tooltip">Chat & Share Reference</span>
+    </a>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="assets/js/luxury.js"></script>
+</body>
+</html>

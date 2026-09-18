@@ -59,16 +59,18 @@ A visual showcase of completed projects, including statues, gates, entrances, po
 
 Information about the customisation process and how customers can request products based on their specific requirements.
 
-### Contact
+### Contact & Instant Lead Actions
 
-Contact information and an enquiry form that allows potential customers to get in touch with the factory.
+- **Fixed 3D Floating Action Dock**: Fixed circular buttons on every page (bottom-right) with tactile 3D depth, bevel highlights, and dynamic shadows for instant phone dialing and WhatsApp chat/reference upload.
+- **Reference Concierge Lead Generator**: Interactive multi-step estimator that compiles user project specs directly into WhatsApp message threads with zero database storage.
 
-## 🛠️ Tech Stack
+## 🛠️ Architecture & Tech Stack
 
-> Update this section according to the technologies used in the project.
-
-- Frontend: HTML, CSS, JavaScript / React
-- Styling: CSS / Tailwind CSS
+- **Architecture**: 100% Client-side Frontend / Standalone Static Platform (No database, no backend server overhead, zero maintenance).
+- **Core Technologies**: HTML5, Modern Vanilla JavaScript (ES6+).
+- **Styling**: Tailwind CSS + Custom High-End Atelier CSS (`assets/css/luxury.css`).
+- **Motion & Smooth Inertia**: GSAP 3 (GreenSock), ScrollTrigger, and Lenis Inertial Scroll.
+- **Icons**: Lucide Icons.
 
 ## Author
 
