@@ -1,20 +1,22 @@
-﻿/* Base & High Performance Reset - Zero Lag, 60fps Native */
+/* Base & High Performance Reset - Zero Lag, 60fps Native */
 :root {
   --bg-dark: #050608;
-  --bg-surface: #0d0f14;
+  --bg-surface: #0c0e14;
   --bg-card: #12141c;
-  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-hairline: rgba(255, 255, 255, 0.07);
   --border-gold: rgba(212, 175, 55, 0.35);
   --text-primary: #f4f3ef;
-  --text-secondary: #9aa0a6;
-  --text-muted: #5f6368;
+  --text-secondary: #7a8090;
+  --text-muted: #4a5060;
   --accent-gold: #d4af37;
   --accent-gold-light: #f5d77f;
-  --font-serif: 'Cinzel', serif;
+  --font-serif: 'Cormorant Garamond', 'Cinzel', serif;
+  --font-display: 'Cinzel', serif;
   --font-mono: 'Space Grotesk', monospace;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
   --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 * {
@@ -59,12 +61,24 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 680px;
+  min-height: 700px;
   background: var(--bg-dark);
   overflow: hidden;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--border-hairline);
+}
+
+/* Atmospheric ambient glow behind sculpture */
+.hero-museum::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 65% at 55% 50%, rgba(212, 175, 55, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 40% at 52% 78%, rgba(120, 80, 10, 0.09) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Vertical Column Hairlines (Exact Pinterest Design) */
@@ -74,32 +88,33 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .grid-col-line {
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.045);
   height: 100%;
 }
 
 .grid-col-line:first-child {
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.045);
 }
 
 /* Glowing Halo Ring Behind Sculpture */
 .halo-ring {
   position: absolute;
-  width: 420px;
-  height: 420px;
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  border: 12px solid #ffffff;
-  box-shadow: 
-    0 0 40px rgba(255, 255, 255, 0.9),
-    0 0 90px rgba(212, 175, 55, 0.5),
-    0 0 160px rgba(212, 175, 55, 0.25),
-    inset 0 0 30px rgba(255, 255, 255, 0.7);
+  border: 9px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.1),
+    0 0 55px rgba(255, 255, 255, 0.65),
+    0 0 110px rgba(212, 175, 55, 0.42),
+    0 0 190px rgba(212, 175, 55, 0.2),
+    inset 0 0 35px rgba(255, 255, 255, 0.25);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
   top: 48%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
@@ -135,7 +150,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+  mix-blend-mode: screen;
+  filter: brightness(1.15) contrast(1.05) drop-shadow(0 0 40px rgba(212, 175, 55, 0.25));
   transition: opacity 0.4s ease;
 }
 
@@ -190,21 +206,22 @@ body {
   pointer-events: auto;
 }
 
-/* Exact Museum Large Serif Title */
+/* Exact Museum Large Serif Title — Cormorant Garamond editorial style */
 .museum-headline {
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 6.2vw, 6.2rem);
-  line-height: 0.96;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 0.93;
   letter-spacing: -0.01em;
-  font-weight: 400;
+  font-weight: 300;
   color: #f4f3ef;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
 }
 
 .museum-headline em {
   font-style: italic;
-  font-family: var(--font-serif);
-  color: #ffffff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 /* Bottom Right Slide Switcher */
