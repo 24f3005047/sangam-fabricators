@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('js-ready');
   if (window.lucide) {
     lucide.createIcons();
   }
@@ -8,28 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================
   const slidesData = [
     {
-      img: 'assets/images/shiva_statue_hero.jpg',
+      img: 'assets/images/shiva_cutout_clean.png',
       sculptureTransform: 'translate3d(0, 0, 0) scale(1)',
       haloTransform: 'translate3d(-50%, -50%, 0) scale(1)',
+      haloOpacity: '1',
       alt: 'Lord Shiva Meditating Statue'
     },
     {
-      img: 'assets/images/shiva_statue_hero.jpg',
-      sculptureTransform: 'translate3d(18vw, 0, 0) scale(1.05)',
-      haloTransform: 'translate3d(calc(-50% + 18vw), -50%, 0) scale(0.95)',
-      alt: 'Lord Shiva Spec Details'
+      img: 'assets/images/shiva_cutout_clean.png',
+      sculptureTransform: 'translate3d(20vw, 0, 0) scale(1.08)',
+      haloTransform: 'translate3d(calc(-50% + 20vw), -50%, 0) scale(0.9)',
+      haloOpacity: '0',
+      alt: 'Lord Shiva Sacred Specifications'
     },
     {
-      img: 'assets/images/party_entrance_hero.jpg',
-      sculptureTransform: 'translate3d(14vw, 0, 0) scale(1.02)',
-      haloTransform: 'translate3d(calc(-50% + 14vw), -46%, 0) scale(1.15)',
-      alt: 'Royal Party Entrance Gate'
+      img: 'assets/images/gate_cutout_clean.png',
+      sculptureTransform: 'translate3d(15vw, 0, 0) scale(1)',
+      haloTransform: 'translate3d(calc(-50% + 15vw), -48%, 0) scale(1.1)',
+      haloOpacity: '0',
+      alt: 'Royal Palatial Wedding Entrance Gate'
     },
     {
-      img: 'assets/images/ganesha_statue_hero.jpg',
-      sculptureTransform: 'translate3d(16vw, 0, 0) scale(1.02)',
-      haloTransform: 'translate3d(calc(-50% + 16vw), -50%, 0) scale(1.05)',
-      alt: 'Lord Ganesha Divine Idol'
+      img: 'assets/images/ganesha_cutout_clean.png',
+      sculptureTransform: 'translate3d(16vw, 0, 0) scale(1.06)',
+      haloTransform: 'translate3d(calc(-50% + 16vw), -50%, 0) scale(1)',
+      haloOpacity: '1',
+      alt: 'Lord Ganesha Handcrafted Divine Idol'
     }
   ];
 
@@ -58,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (haloRing) {
       haloRing.style.transform = data.haloTransform;
+      haloRing.style.opacity = data.haloOpacity !== undefined ? data.haloOpacity : '1';
     }
 
     // Update Image smoothly
@@ -101,12 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => setSlide(currentSlide + 1));
   }
 
-  dashes.forEach(dash => {
+    dashes.forEach(dash => {
     dash.addEventListener('click', () => {
       const idx = parseInt(dash.getAttribute('data-slide-index'), 10);
       if (!isNaN(idx)) setSlide(idx);
     });
   });
+
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('slide')) {
+    const sIdx = parseInt(urlParams.get('slide'), 10);
+    if (!isNaN(sIdx)) setSlide(sIdx);
+  }
+  if (urlParams.has('scroll') && urlParams.get('scroll') === 'bottom') {
+    const finale = document.getElementById('atelierFinale');
+    if (finale) {
+      setTimeout(() => {
+        finale.scrollIntoView({ behavior: 'auto' });
+      }, 60);
+    }
+  }
 
   // Autoplay presentation every 7 seconds, pauses on interaction
   let autoTimer = setInterval(() => setSlide(currentSlide + 1), 7000);
@@ -231,6 +251,174 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const phone = '919450000000'; // Target factory owner phone
       window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank');
+    });
+  }
+
+  // ==========================================================
+  // SCROLL-DRIVEN HERO TRANSITIONS (WHEEL & TOUCH GESTURES)
+  // (Seamlessly steps through slides before scrolling down)
+  // ==========================================================
+  let isWheelLocked = false;
+  const heroMuseumSection = document.getElementById('heroMuseum');
+
+  if (heroMuseumSection) {
+    window.addEventListener('wheel', (e) => {
+      // Only intercept wheel if we are at the very top of the page
+      if (window.scrollY > 20) return;
+
+      if (isWheelLocked) return;
+
+      if (e.deltaY > 35) {
+        // Scrolling downward
+        if (currentSlide < totalSlides - 1) {
+          e.preventDefault();
+          setSlide(currentSlide + 1);
+          isWheelLocked = true;
+          setTimeout(() => { isWheelLocked = false; }, 650);
+        }
+        // If at the last slide (Slide 3), let native scroll proceed down
+      } else if (e.deltaY < -35) {
+        // Scrolling upward
+        if (currentSlide > 0 && window.scrollY <= 10) {
+          e.preventDefault();
+          setSlide(currentSlide - 1);
+          isWheelLocked = true;
+          setTimeout(() => { isWheelLocked = false; }, 650);
+        }
+      }
+    }, { passive: false });
+  }
+
+  // ==========================================================
+  // SCROLL PROGRESS BAR
+  // ==========================================================
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  function updateScrollProgress() {
+    if (!scrollProgressBar) return;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    const scrollPercent = (window.scrollY / docHeight) * 100;
+    scrollProgressBar.style.width = Math.min(100, Math.max(0, scrollPercent)) + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // ==========================================================
+  // SCROLL REVEAL INTERSECTION OBSERVER
+  // ==========================================================
+  const revealElements = document.querySelectorAll(
+    '.reveal-init, .portfolio-card, #referenceSlider, .material-cell, .identity-left, .identity-stats, .call-card'
+  );
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  // ==========================================================
+  // END-OF-PAGE GRAND ATELIER FINALE ANIMATION
+  // (Cinematic Portal Expansion & Starlight Particles)
+  // ==========================================================
+  const atelierFinale = document.getElementById('atelierFinale');
+  const finalePortal = document.getElementById('finalePortal');
+  const finaleSculpture = document.getElementById('finaleSculpture');
+  const finaleCanvas = document.getElementById('finaleCanvas');
+
+  let finaleParticlesRunning = false;
+  let particleAnimId = null;
+
+  if (finaleCanvas && atelierFinale) {
+    const ctx = finaleCanvas.getContext('2d');
+    let width = (finaleCanvas.width = atelierFinale.offsetWidth);
+    let height = (finaleCanvas.height = atelierFinale.offsetHeight);
+
+    window.addEventListener('resize', () => {
+      width = finaleCanvas.width = atelierFinale.offsetWidth;
+      height = finaleCanvas.height = atelierFinale.offsetHeight;
+    });
+
+    // Generate 50 ambient luminous starlight particles
+    const particles = [];
+    for (let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2 + 0.6,
+        alpha: Math.random() * 0.7 + 0.2,
+        speedY: Math.random() * 0.45 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.25,
+        color: Math.random() > 0.4 ? 'rgba(212, 175, 55,' : 'rgba(255, 255, 255,'
+      });
+    }
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach((p) => {
+        p.y -= p.speedY;
+        p.x += p.speedX;
+
+        // Wrap around seamlessly
+        if (p.y < 0) p.y = height;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + p.alpha + ')';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#d4af37';
+        ctx.fill();
+      });
+
+      if (finaleParticlesRunning) {
+        particleAnimId = requestAnimationFrame(renderParticles);
+      }
+    }
+
+    // Observer for Atelier Finale
+    const finaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (finalePortal) finalePortal.classList.add('active');
+          if (finaleSculpture) finaleSculpture.classList.add('active');
+          if (!finaleParticlesRunning) {
+            finaleParticlesRunning = true;
+            renderParticles();
+          }
+        } else {
+          finaleParticlesRunning = false;
+          if (particleAnimId) cancelAnimationFrame(particleAnimId);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    finaleObserver.observe(atelierFinale);
+  }
+
+  // ==========================================================
+  // BACK TO TOP SMOOTH GLIDE
+  // ==========================================================
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      setTimeout(() => {
+        setSlide(0);
+      }, 400);
     });
   }
 });

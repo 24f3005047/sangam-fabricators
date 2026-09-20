@@ -54,6 +54,24 @@ body {
   align-items: center;
 }
 
+.nav-link-item {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.nav-link-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #3b82f6;
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+}
+
 /* ==========================================================
    SANDHILL STUDIO / LOURVE STYLE HERO
    ========================================================== */
@@ -100,36 +118,35 @@ body {
   border-left: 1px solid rgba(255, 255, 255, 0.045);
 }
 
-/* Glowing Halo Ring Behind Sculpture */
+/* Glowing Halo Ring Behind Sculpture (Exact Reference Video) */
 .halo-ring {
   position: absolute;
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  border: 9px solid rgba(255, 255, 255, 0.95);
+  border: 7px solid #ffffff;
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.1),
-    0 0 55px rgba(255, 255, 255, 0.65),
-    0 0 110px rgba(212, 175, 55, 0.42),
-    0 0 190px rgba(212, 175, 55, 0.2),
-    inset 0 0 35px rgba(255, 255, 255, 0.25);
+    0 0 35px rgba(255, 255, 255, 0.95),
+    0 0 75px rgba(255, 255, 255, 0.5),
+    0 0 130px rgba(212, 175, 55, 0.35),
+    inset 0 0 25px rgba(255, 255, 255, 0.3);
   pointer-events: none;
-  z-index: 3;
+  z-index: 2;
   top: 48%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  transition: transform var(--transition-smooth), opacity 0.5s ease;
-  will-change: transform;
+  transition: transform var(--transition-smooth), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
-/* Central 3D Sculpture Stage */
+/* Central 3D Sculpture Stage (Statue floats cleanly directly on page) */
 .sculpture-stage {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -138,7 +155,7 @@ body {
   width: 580px;
   max-width: 90vw;
   height: 720px;
-  max-height: 82vh;
+  max-height: 84vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,16 +163,16 @@ body {
   will-change: transform;
 }
 
+/* Sculpture Cutout — Opaque, crisp, natural drop shadow against dark canvas */
 .sculpture-media {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: screen;
-  filter: brightness(1.15) contrast(1.05) drop-shadow(0 0 40px rgba(212, 175, 55, 0.25));
-  transition: opacity 0.4s ease;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.15));
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s ease;
 }
 
-/* Left Vertical Progress Dashboard */
+/* Left Vertical Progress Dashboard (Exact Reference Video Style) */
 .hero-pagination-vertical {
   position: absolute;
   left: 36px;
@@ -168,17 +185,24 @@ body {
 }
 
 .progress-dash-item {
-  width: 20px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
+.progress-dash-item:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .progress-dash-item.active {
-  width: 38px;
-  background: var(--accent-gold);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
 }
 
 /* Slide Typography Content Overlay */
@@ -471,6 +495,149 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+/* ==========================================================
+   SCROLL PROGRESS BAR & SCROLL-TRIGGERED REVEALS
+   ========================================================== */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #3b82f6, #d4af37, #f5d77f);
+  z-index: 99999;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* Progressive Reveal-on-scroll styles */
+.reveal-init {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.85s cubic-bezier(0.19, 1, 0.22, 1), transform 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+}
+
+.js-ready .reveal-init:not(.revealed) {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+
+/* Scale & tilt variant for cards */
+.reveal-scale {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+}
+
+.js-ready .reveal-scale:not(.revealed) {
+  opacity: 0;
+  transform: translateY(35px) scale(0.96);
+}
+
+/* ==========================================================
+   GRAND ATELIER FINALE — END-OF-PAGE CINEMATIC SANCTUM
+   ========================================================== */
+.atelier-finale-section {
+  position: relative;
+  min-height: 85vh;
+  background: radial-gradient(circle at 50% 55%, rgba(212, 175, 55, 0.08) 0%, rgba(5, 6, 8, 1) 70%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.finale-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.finale-portal {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 7px solid #ffffff;
+  box-shadow:
+    0 0 45px rgba(255, 255, 255, 0.9),
+    0 0 95px rgba(212, 175, 55, 0.55),
+    0 0 180px rgba(212, 175, 55, 0.3),
+    inset 0 0 35px rgba(255, 255, 255, 0.25);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0.92;
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 1.2s ease;
+  z-index: 2;
+  pointer-events: none;
+  animation: portalBreathe 4s ease-in-out infinite alternate;
+}
+
+.finale-portal.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+@keyframes portalBreathe {
+  0% {
+    transform: translate(-50%, -50%) scale(0.97);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 85px rgba(212, 175, 55, 0.45);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.03);
+    box-shadow: 0 0 65px rgba(255, 255, 255, 1), 0 0 130px rgba(212, 175, 55, 0.65), 0 0 220px rgba(212, 175, 55, 0.35);
+  }
+}
+
+.finale-sculpture {
+  position: absolute;
+  width: 440px;
+  max-width: 75vw;
+  height: 580px;
+  max-height: 70vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%) scale(0.94);
+  opacity: 0.95;
+  transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 1.2s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.finale-sculpture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.95)) drop-shadow(0 0 45px rgba(212, 175, 55, 0.3));
+}
+
+.finale-sculpture.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.finale-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .hero-pagination-vertical { display: none; }
   .halo-ring { width: 300px; height: 300px; }
@@ -479,4 +646,6 @@ body {
   .floating-actions-dock { bottom: 18px; right: 18px; gap: 12px; }
   .float-btn { width: 52px; height: 52px; }
   .float-tooltip { display: none; }
+  .finale-portal { width: 290px; height: 290px; }
+  .finale-sculpture { width: 280px; height: 380px; }
 }

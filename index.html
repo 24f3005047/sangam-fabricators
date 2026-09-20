@@ -44,6 +44,9 @@
 </head>
 <body class="bg-[#050608] text-[#f4f3ef] antialiased selection:bg-[#d4af37] selection:text-black">
 
+  <!-- Scroll-Driven Reading Progress Bar -->
+  <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+
   <!-- Minimalist Sandhill Studio / LOURVE Header -->
   <header class="lourve-header">
     <div class="w-full max-w-[1380px] mx-auto px-8 lg:px-14 flex items-center justify-between">
@@ -53,13 +56,13 @@
         <span class="font-serif text-2xl lg:text-3xl font-normal tracking-[0.24em] text-white uppercase group-hover:text-[#d4af37] transition-colors">SANGAM</span>
       </a>
 
-      <!-- Minimal Spaced Navigation Links -->
+      <!-- Minimal Spaced Navigation Links (Exact Video Column Alignment) -->
       <nav class="hidden md:flex items-center gap-10 font-mono text-[11px] uppercase tracking-[0.25em] text-[#9aa0a6]">
-        <a href="#heroMuseum" class="text-white hover:text-[#d4af37] transition-colors">HOME</a>
-        <a href="#portfolio" class="hover:text-white transition-colors">COLLECTION</a>
-        <a href="#reference-lab" class="hover:text-white transition-colors">REFERENCE LAB</a>
-        <a href="#wholesale" class="hover:text-white transition-colors">WHOLESALE</a>
-        <a href="#concierge" class="hover:text-white transition-colors">ENQUIRE</a>
+        <a href="#heroMuseum" class="nav-link-item active text-white">HOME</a>
+        <a href="#portfolio" class="nav-link-item hover:text-white">COLLECTION</a>
+        <a href="#reference-lab" class="nav-link-item hover:text-white">REFERENCE LAB</a>
+        <a href="#wholesale" class="nav-link-item hover:text-white">WHOLESALE</a>
+        <a href="#concierge" class="nav-link-item hover:text-white">ENQUIRE</a>
       </nav>
 
       <!-- Right Action & 3x3 Dot Grid Icon -->
@@ -106,11 +109,11 @@
       <!-- Central 3D Sculpture Stage -->
       <div class="sculpture-stage">
         <div class="sculpture-frame" id="sculptureFrame">
-          <img id="sculptureMedia" src="assets/images/shiva_statue_hero.jpg" alt="Lord Shiva Meditating Statue" class="sculpture-media" style="mix-blend-mode:screen;filter:brightness(1.15) contrast(1.05) drop-shadow(0 0 40px rgba(212,175,55,0.25));">
+          <img id="sculptureMedia" src="assets/images/shiva_cutout_clean.png" alt="Lord Shiva Meditating Statue" class="sculpture-media">
         </div>
       </div>
 
-      <!-- Left Vertical Progress Dashboard (Exact Pinterest Design) -->
+      <!-- Left Vertical Progress Dashboard (Exact Reference Video Design) -->
       <div class="hero-pagination-vertical" aria-label="Slide Indicator">
         <div class="progress-dash-item active" data-slide-index="0" title="Atelier Overview"></div>
         <div class="progress-dash-item" data-slide-index="1" title="Mahadev Deity Specifications"></div>
@@ -118,7 +121,7 @@
         <div class="progress-dash-item" data-slide-index="3" title="Any Reference to Reality"></div>
       </div>
 
-      <!-- Typography Content Layer (Overlaying Like Pinterest) -->
+      <!-- Typography Content Layer (Overlaying Like Pinterest & Reference Video) -->
       <div class="hero-content-layer">
         
         <!-- SLIDE 1: "Museum of Ancient Art" Style Opening -->
@@ -141,74 +144,80 @@
           </div>
         </div>
 
-        <!-- SLIDE 2: "Alexandros of Antioch / 203 cm" Spec Details -->
+        <!-- SLIDE 2: "Alexandros of Antioch / 203 cm" Spec Details (Exact Reference Video Style) -->
         <div class="slide-content-block items-center" id="slideBlock1">
-          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// MONUMENTAL SACRED DEITY</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
-              Lord Shiva (Mahadev)
-            </h2>
-            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
-              Handcrafted in high-density isophthalic resin, triple-weave fiberglass mat, and antique bronze patina with weather-shield clearcoat.
-            </p>
+          <div class="max-w-lg space-y-7 pl-2 lg:pl-6">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-2">// SACRED COMPOSITE DEITY</span>
+              <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-light leading-tight">
+                Lord Shiva (Mahadev)
+              </h2>
+              <p class="text-xs font-light text-[#9aa0a6] mt-2 max-w-sm leading-relaxed">
+                Hand-layered in aerospace isophthalic resin matrix with antique bronze patina and UV-armor clearcoat.
+              </p>
+            </div>
 
-            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
-              <div>
-                <div class="text-2xl font-bold text-white tracking-wider">180 cm (72 in)</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Customizable Scale (2ft to 35ft+)</div>
-              </div>
-              <div>
-                <div class="text-base font-medium text-[#d4af37] tracking-wider">Zero Mold Deviation Guarantee</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">100% Monsoonal & Sun Waterproof</div>
-              </div>
+            <div class="pt-4 border-t border-white/10">
+              <div class="font-serif text-3xl sm:text-4xl text-white font-light">180 cm (72 in)</div>
+              <p class="text-xs font-light text-[#9aa0a6] mt-1 max-w-sm leading-relaxed">
+                Modular scaling from 2-foot tabletop mandir vigrahas to 35-foot monumental outdoor temple idols.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/10">
+              <div class="font-serif text-2xl text-[#d4af37] font-normal">Lucknow Atelier</div>
+              <p class="text-xs font-light text-[#9aa0a6] mt-1 max-w-sm leading-relaxed">
+                Factory-direct artisan pricing with zero middleman commissions. 100% monsoonal and UV weather-shield.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- SLIDE 3: Party Entrances & Gates -->
+        <!-- SLIDE 3: Royal Party Entrances & Gates -->
         <div class="slide-content-block items-center" id="slideBlock2">
-          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// WEDDING & EVENT SECTOR</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
-              Royal Party Entrances
-            </h2>
-            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
-              Palatial carved entrance gates, Victorian arches, and ornate pillars engineered for tent house decorators and wedding venues.
-            </p>
+          <div class="max-w-lg space-y-7 pl-2 lg:pl-6">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-2">// WEDDING &amp; EVENT ARCHITECTURE</span>
+              <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-light leading-tight">
+                Royal Palatial Entrances
+              </h2>
+              <p class="text-xs font-light text-[#9aa0a6] mt-2 max-w-sm leading-relaxed">
+                Carved Victorian &amp; Nawabi gateway arches crafted for tent houses, event planners, and luxury banquets.
+              </p>
+            </div>
 
-            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
-              <div>
-                <div class="text-2xl font-bold text-white tracking-wider">28 ft Modular Portal</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Rapid 2-Hour Clip Assembly</div>
-              </div>
-              <div>
-                <div class="text-base font-medium text-[#d4af37] tracking-wider">Wholesale Decorator Rates</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Reusable for 150+ Events • Ultra Lightweight</div>
-              </div>
+            <div class="pt-4 border-t border-white/10">
+              <div class="font-serif text-3xl sm:text-4xl text-white font-light">28 ft Modular Span</div>
+              <p class="text-xs font-light text-[#9aa0a6] mt-1 max-w-sm leading-relaxed">
+                Engineered with interlocking clip-frame architecture. Rapid 90-minute setup by 4 workers without cranes.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/10">
+              <div class="font-serif text-2xl text-[#d4af37] font-normal">150+ Event Longevity</div>
+              <p class="text-xs font-light text-[#9aa0a6] mt-1 max-w-sm leading-relaxed">
+                Impact-resistant lightweight fibre matrix. Reusable across 150+ wedding seasons at direct workshop rates.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- SLIDE 4: "Discovery of a Masterpiece" / Custom Reference -->
-        <div class="slide-content-block items-center" id="slideBlock3">
-          <div class="max-w-md bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-white/10">
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-3">// REFERENCE TO REALITY</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
-              Any Reference Built
+        <!-- SLIDE 4: "Discovery of a Sacred Masterpiece" (Exact Reference Video Style) -->
+        <div class="slide-content-block justify-between items-end w-full" id="slideBlock3">
+          <div class="max-w-2xl">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#d4af37] block mb-4">// BESPOKE COMMISSIONS</span>
+            <h2 class="museum-headline">
+              Discovery<br>
+              <em>of a Sacred</em><br>
+              Masterpiece
             </h2>
-            <p class="text-xs font-light text-[#9aa0a6] mt-2 leading-relaxed">
-              Send us any photo, drawing, or Pinterest reference. Our master mold artisans create identical custom statues, portraits, or event gates.
+          </div>
+          <div class="max-w-sm text-right hidden md:block pb-2 space-y-3">
+            <p class="text-xs font-light text-[#9aa0a6] leading-relaxed">
+              Every idol and grand portal is sculpted to your exact vision. Share any photograph, sketch, or Pinterest pin for precise resin replication.
             </p>
-
-            <div class="mt-6 pt-6 border-t border-white/10 space-y-4 font-mono">
-              <div>
-                <div class="text-2xl font-bold text-white tracking-wider">Unbeatable Pricing</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Direct Factory Cost • Retail & Wholesale</div>
-              </div>
-              <div>
-                <div class="text-base font-medium text-[#d4af37] tracking-wider">Pan-India Crated Dispatch</div>
-                <div class="text-[10px] uppercase text-[#9aa0a6] tracking-widest">Safely Delivered Across UP & India</div>
-              </div>
+            <div class="font-mono text-[11px] text-[#d4af37] tracking-widest uppercase">
+              WHOLESALE &amp; RETAIL // DIRECT FACTORY COST
             </div>
           </div>
         </div>
@@ -659,6 +668,51 @@
         </div>
       </div>
     </section>
+
+    <!-- =======================================================
+         GRAND ATELIER FINALE — END-OF-PAGE CINEMATIC SANCTUM
+         (Reference Museum / Sandhill Finale Animation)
+         ======================================================= -->
+    <section id="atelierFinale" class="atelier-finale-section">
+      <!-- Starlight Particle Glow Canvas -->
+      <canvas id="finaleCanvas" class="finale-canvas"></canvas>
+
+      <!-- Glowing Grand Halo Portal (Expands as you reach page end) -->
+      <div class="finale-portal" id="finalePortal"></div>
+
+      <!-- Sacred Floating Sculpture Silhouette -->
+      <div class="finale-sculpture" id="finaleSculpture">
+        <img src="assets/images/shiva_cutout_clean.png" alt="Monumental Mahadev Finale Silhouette">
+      </div>
+
+      <!-- Foreground Kinetic Editorial Typography -->
+      <div class="finale-content">
+        <span class="font-mono text-xs uppercase tracking-[0.35em] text-[#d4af37] block mb-4 reveal-init">
+          // THE SACRED ATELIER // LUCKNOW
+        </span>
+        <h2 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.05] mb-6 reveal-init reveal-delay-1">
+          From Divine Vision <br>
+          <em class="italic text-white/90">to Eternal Form</em>
+        </h2>
+        <p class="text-sm font-light text-[#9aa0a6] max-w-xl mx-auto leading-relaxed mb-10 reveal-init reveal-delay-2">
+          Whether a 35-foot monumental temple idol, a royal palatial wedding gate, or a bespoke reference from your sketch — our Lucknow craftsmen bring your vision into immutable resin composite at direct workshop cost.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5 reveal-init reveal-delay-3">
+          <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20ready%20to%20discuss%20a%20custom%20order." target="_blank" rel="noopener noreferrer" class="px-10 py-5 rounded-full text-xs font-mono uppercase tracking-[0.25em] font-bold btn-liquid-gold shadow-2xl flex items-center justify-center gap-3">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Initiate Custom Commission</span>
+          </a>
+          <a href="tel:+919450000000" class="px-8 py-5 rounded-full text-xs font-mono uppercase tracking-[0.2em] font-medium border border-white/20 hover:border-[#d4af37] text-white hover:text-[#d4af37] transition-all flex items-center justify-center gap-3">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Call +91 94500 XXXXX</span>
+          </a>
+        </div>
+        <div class="mt-12 font-mono text-[11px] text-white/40 tracking-[0.3em] uppercase reveal-init reveal-delay-4 flex items-center justify-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-[#4ade80] animate-ping"></span>
+          <span>LIVE WORKSHOP BAY // 26.8467° N, 80.9462° E // PAN-INDIA CRATED DISPATCH</span>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="pt-20 pb-12 bg-black border-t border-white/[0.08] relative">
@@ -702,7 +756,7 @@
         <div>© 2026 SANGAM FABRICATORS (FIBRECRAFT). ALL RIGHTS RESERVED.</div>
         <div class="flex items-center gap-6">
           <span>DESIGNED BY OM SHIV VERMA</span>
-          <a href="#" class="hover:text-white transition-colors">BACK TO TOP ↑</a>
+          <a href="#heroMuseum" id="backToTopBtn" class="hover:text-white transition-colors cursor-pointer">BACK TO TOP ↑</a>
         </div>
       </div>
     </div>
