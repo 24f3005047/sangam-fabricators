@@ -122,24 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // SCROLL-DRIVEN 3D ROTATION EFFECT
-  // ==========================================================
-  const sculptureMedia = document.getElementById('sculptureMedia');
-  if (sculptureMedia) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      
-      // Calculate rotation based on scroll percentage, a gentle full rotation or tilt
-      // To mimic a 3D effect without getting too thin, we'll oscillate from -15 to +15
-      // or if full rotation is desired, we could use rotateY(scrolled * 0.1deg).
-      // Let's do a gentle sway for better visuals of flat png:
-      const tiltAngle = Math.sin(scrolled * 0.002) * 20; 
-      sculptureMedia.style.transform = `perspective(1000px) rotateY(${tiltAngle}deg)`;
-    }, { passive: true });
-  }
-
-  // ==========================================================
   // SCROLL PROGRESS BAR
   // ==========================================================
   const scrollProgressBar = document.getElementById('scrollProgressBar');

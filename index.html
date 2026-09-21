@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sangam Fabricators | Bespoke Resin & Fibre Artisans Lucknow</title>
+  <title>Sangam Fabricators | Museum of Ancient Art & Sacred Idols</title>
   <meta name="description" content="Premier Lucknow atelier for custom fibre & resin statues, monumental party entrances, divine religious idols, and architectural sculptures at direct factory rates.">
   
   <!-- Fonts -->
@@ -39,6 +39,9 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Sketchfab Viewer API -->
+  <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+
   <!-- Custom Styles (Zero Lag, 60fps Native) -->
   <link rel="stylesheet" href="assets/css/luxury.css">
 </head>
@@ -60,9 +63,9 @@
       <nav class="hidden md:flex items-center gap-10 font-mono text-[11px] uppercase tracking-[0.25em] text-[#9aa0a6]">
         <a href="#heroMuseum" class="nav-link-item active text-white">HOME</a>
         <a href="#portfolio" class="nav-link-item hover:text-white">COLLECTION</a>
-        <a href="#reference-lab" class="nav-link-item hover:text-white">REFERENCE LAB</a>
-        <a href="#wholesale" class="nav-link-item hover:text-white">WHOLESALE</a>
-        <a href="#concierge" class="nav-link-item hover:text-white">ENQUIRE</a>
+        <a href="#reference-lab" class="nav-link-item hover:text-white">ARTISTS</a>
+        <a href="#wholesale" class="nav-link-item hover:text-white">EVENTS</a>
+        <a href="#concierge" class="nav-link-item hover:text-white">VISIT</a>
       </nav>
 
       <!-- Right Action & 3x3 Dot Grid Icon -->
@@ -70,18 +73,6 @@
         <a href="#concierge" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-mono uppercase tracking-widest font-semibold border border-white/20 hover:border-[#3b82f6] text-white hover:text-[#3b82f6] transition-all">
           <span>Quote</span>
         </a>
-        <!-- Minimalist 3x3 Dot Grid Icon (From Pinterest Design) -->
-        <div class="w-6 h-6 grid grid-cols-3 gap-1 cursor-pointer opacity-75 hover:opacity-100 transition-opacity" title="Menu">
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-          <div class="w-1 h-1 bg-white rounded-full"></div>
-        </div>
       </div>
 
     </div>
@@ -108,8 +99,20 @@
 
       <!-- Central 3D Sculpture Stage -->
       <div class="sculpture-stage">
-        <div class="sculpture-frame" id="sculptureFrame">
-          <img id="sculptureMedia" src="assets/images/ganesha_cutout_clean.png" alt="Lord Ganesha Statue" class="sculpture-media">
+        <div class="sculpture-frame" id="sculptureFrame" style="width: 100vw; max-width: 1200px; height: 100vh; max-height: 1200px; display: flex; justify-content: center; align-items: center; pointer-events: auto; margin: 0 auto;">
+          <iframe 
+            id="api-frame"
+            title="Antique Ganesha" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            xr-spatial-tracking
+            execution-while-out-of-viewport
+            src="https://sketchfab.com/models/46f25917718e48338536689c48b160d5/embed?autostart=1&transparent=1&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_theme=dark&ui_stop=0&ui_controls=0&ui_help=0&orbit_constraint_pan=1&scrollwheel=0&orbit_constraint_zoom_in=0.4&orbit_constraint_zoom_out=0.4"
+            style="width: 100%; height: 100%; border: none; outline: none;">
+          </iframe>
         </div>
       </div>
 
@@ -119,19 +122,17 @@
         <!-- SLIDE 1: "Museum of Ancient Art" Style Opening -->
         <div class="slide-content-block active justify-between items-end w-full" id="slideBlock0">
           <div class="max-w-2xl">
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-4">// LUCKNOW COMPOSITE ATELIER</span>
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-4">// MUSEUM OF ANCIENT ART</span>
             <h1 class="museum-headline">
               Lord <br>
               Ganesha
             </h1>
           </div>
-          <div class="max-w-xs text-right hidden md:block pb-2">
-            <p class="text-xs font-light text-[#9aa0a6] leading-relaxed">
-              Sangam Fabricators is Lucknow's master composite workshop specializing in monumental religious idols, grand wedding gates, and bespoke references at direct factory rates.
-            </p>
-            <div class="mt-4 font-mono text-[11px] text-white/60 tracking-widest uppercase">
-              26.8467° N, 80.9462° E // DIRECT FACTORY
-            </div>
+          <div class="text-right hidden md:block">
+            <h1 class="museum-headline">
+              Sangam <br>
+              Fabricators
+            </h1>
           </div>
         </div>
 
@@ -151,42 +152,6 @@
           <span class="text-[#3b82f6]">• Event Mandap Columns</span>
           <span>• Lightweight Composite Castings</span>
           <span class="text-[#3b82f6]">• Custom Reference Fabrication</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="reference-lab" class="py-28 relative border-b border-white/[0.06]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          <div>
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// The Core Capability</span>
-            <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
-              Reference <span class="font-serif italic font-normal text-gold-gradient">to</span> Reality.
-            </h2>
-          </div>
-          <p class="max-w-md text-sm text-[#9aa0a6] font-light leading-relaxed">
-            Drag the divider below. You share a phone photo, 2D sketch, or Pinterest reference — our master modelers shape it into durable, hand-lacquered fibre composite down to the exact detail.
-          </p>
-        </div>
-        <!-- Interactive Comparison Slider -->
-        <div class="ba-container group cursor-ew-resize scroll-reveal" id="referenceSlider">
-          <img src="assets/images/shiva_statue.jpg" alt="Client Reference Photo of Deity" class="ba-before-img">
-          <div class="absolute bottom-6 right-6 z-10 bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-widest text-white/90">
-            [Right] Client's Reference Photo
-          </div>
-          <div class="ba-after-wrapper">
-            <img src="assets/images/shiva_statue_hero.jpg" alt="Finished Handcrafted Fibre Sculpture">
-            <div class="absolute bottom-6 left-6 z-10 bg-[#3b82f6] text-black font-semibold px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-widest shadow-lg">
-              [Left] Our Finished Fibre Sculpture
-            </div>
-          </div>
-          <div class="ba-handle">
-            <i data-lucide="chevrons-left-right" class="w-4 h-4 text-[#3b82f6]"></i>
-          </div>
-        </div>
-        <div class="mt-8 flex flex-wrap items-center justify-between text-xs font-mono text-[#9aa0a6] tracking-wider">
-          <div><i data-lucide="info" class="w-3.5 h-3.5 inline mr-1 text-[#3b82f6]"></i> DRAG THE SLIDER HORIZONTALLY TO COMPARE ACCURACY</div>
-          <div>ZERO MOLDING DEVIATION GUARANTEE</div>
         </div>
       </div>
     </section>
@@ -228,7 +193,7 @@
             </div>
           </div>
 
-          <!-- Item 2: Party Entrance (Royal Palatial Wedding Portal) -->
+          <!-- Item 2: Party Entrance (Ancient Temple Gateway) -->
           <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
             <div class="h-80 overflow-hidden relative bg-[#08090d]">
               <img src="assets/images/wedding_gate.jpg" alt="Royal Palatial Wedding & Event Entrance Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -237,11 +202,11 @@
               </div>
             </div>
             <div class="p-6">
-              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Party & Event Entrance</span>
-              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Royal Palatial Wedding Portal</h3>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Historical Archway</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Ancient Temple Gateway</h3>
               <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">High-durability interlocking lightweight fibre archway with gold fluted pillars. Built for rapid 90-minute setup by tent house decorators; re-usable for 150+ wedding seasons.</p>
               <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
-                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="package" class="w-3.5 h-3.5"></i> Wholesale Favorite</span>
+                <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="package" class="w-3.5 h-3.5"></i> Museum Artifact</span>
                 <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20enquiring%20about%20the%20Royal%20Palatial%20Wedding%20Portal." target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#3b82f6] flex items-center gap-1 transition-colors">Enquire <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></a>
               </div>
             </div>
@@ -266,7 +231,7 @@
             </div>
           </div>
 
-          <!-- Item 4: Party Entrance (Nawabi Heritage Palace Gate) -->
+          <!-- Item 4: Party Entrance (Relic of the Royal Palace) -->
           <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
             <div class="h-80 overflow-hidden relative bg-[#08090d]">
               <img src="assets/images/palace_gate.jpg" alt="Nawabi Heritage Lucknow Palace Entrance Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -275,8 +240,8 @@
               </div>
             </div>
             <div class="p-6">
-              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Party & Event Entrance</span>
-              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Nawabi Heritage Palace Gate</h3>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Historical Archway</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Relic of the Royal Palace</h3>
               <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Inspired by Lucknow's historic architectural gateways. Features ornate jali archways, royal spires, and reinforced steel-core FRP frames engineered for high wind load stability.</p>
               <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
                 <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="wind" class="w-3.5 h-3.5"></i> High Wind Rated</span>
@@ -307,14 +272,14 @@
           <!-- Item 6: Party Entrance (Floral Theme Gala Portal) -->
           <div class="portfolio-card card-clean overflow-hidden group scroll-reveal" data-category="events">
             <div class="h-80 overflow-hidden relative bg-[#08090d]">
-              <img src="assets/images/floral_portal.jpg" alt="Floral Theme Luxury Event Gateway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="assets/images/floral_portal.jpg" alt="Sacred Floral Archway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono tracking-widest text-[#3b82f6] border border-white/10">
                 MODULAR 24 FT
               </div>
             </div>
             <div class="p-6">
-              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Party & Event Entrance</span>
-              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Floral Theme Luxury Event Gateway</h3>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-[#3b82f6]">Historical Archway</span>
+              <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-[#3b82f6] transition-colors">Sacred Floral Archway</h3>
               <p class="text-sm text-[#9aa0a6] mt-2 font-light leading-relaxed">Engineered with built-in hollow structural channels for LED wash lights, hanging floral chandeliers, and quick-clip banner frames. Easy transport on standard utility pickups.</p>
               <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
                 <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Rapid Dismantle</span>
@@ -384,10 +349,46 @@
       </div>
     </section>
 
+    <section id="reference-lab" class="py-28 relative border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// The Core Capability</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
+              Reference <span class="font-serif italic font-normal text-gold-gradient">to</span> Reality.
+            </h2>
+          </div>
+          <p class="max-w-md text-sm text-[#9aa0a6] font-light leading-relaxed">
+            Drag the divider below. You share a phone photo, 2D sketch, or Pinterest reference — our master modelers shape it into durable, hand-lacquered fibre composite down to the exact detail.
+          </p>
+        </div>
+        <!-- Interactive Comparison Slider -->
+        <div class="ba-container group cursor-ew-resize scroll-reveal" id="referenceSlider">
+          <img src="assets/images/shiva_statue.jpg" alt="Client Reference Photo of Deity" class="ba-before-img">
+          <div class="absolute bottom-6 right-6 z-10 bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-[11px] font-mono uppercase tracking-widest text-white/90">
+            [Right] Client's Reference Photo
+          </div>
+          <div class="ba-after-wrapper">
+            <img src="assets/images/shiva_statue_hero.jpg" alt="Finished Handcrafted Fibre Sculpture">
+            <div class="absolute bottom-6 left-6 z-10 bg-[#3b82f6] text-black font-semibold px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-widest shadow-lg">
+              [Left] Our Finished Fibre Sculpture
+            </div>
+          </div>
+          <div class="ba-handle">
+            <i data-lucide="chevrons-left-right" class="w-4 h-4 text-[#3b82f6]"></i>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-between text-xs font-mono text-[#9aa0a6] tracking-wider">
+          <div><i data-lucide="info" class="w-3.5 h-3.5 inline mr-1 text-[#3b82f6]"></i> DRAG THE SLIDER HORIZONTALLY TO COMPARE ACCURACY</div>
+          <div>ZERO MOLDING DEVIATION GUARANTEE</div>
+        </div>
+      </div>
+    </section>
+
     <section id="material" class="py-28 relative bg-[#0c0e14] border-b border-white/[0.06]">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <div class="max-w-3xl mb-16">
-          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// Material Science & Integrity</span>
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// Artifact Preservation</span>
           <h2 class="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight">
             Superior <span class="font-serif italic font-normal text-gold-gradient">Durability</span> Over Stone & Plaster.
           </h2>
@@ -424,6 +425,43 @@
       </div>
     </section>
 
+    <section id="wholesale" class="py-24 relative bg-[#0d0f15] border-t border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div class="max-w-xl">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// Commercial Supply Chain</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white tracking-tight leading-tight">
+              Event Planners & Tent House <span class="font-serif italic font-normal text-gold-gradient">Wholesale Guild</span>
+            </h2>
+            <p class="text-sm text-[#9aa0a6] mt-4 font-light leading-relaxed">
+              We operate large curing bays in Lucknow capable of fulfilling 20+ grand entrance sets simultaneously. Get priority batch manufacturing, modular transport packaging, and unbranded catalogue support for your event agency.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-white/90">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Special Bulk Pricing</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Modular Dismantle Fittings</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Rapid Turnaround Guarantee</div>
+            </div>
+          </div>
+          <div class="w-full lg:w-auto">
+            <div class="p-8 rounded-2xl glass-panel border border-[#3b82f6]/30 text-center max-w-sm">
+              <div class="font-serif text-3xl text-white font-bold">Direct Call</div>
+              <div class="text-xs font-mono uppercase tracking-widest text-[#9aa0a6] mt-1">Speak with the owner</div>
+              <div class="my-6">
+                <a href="tel:+919450000000" class="text-2xl font-mono font-bold text-[#3b82f6] hover:underline block tracking-wider">+91 94500 XXXXX</a>
+              </div>
+              <a href="#concierge" class="w-full py-3 rounded-full text-xs font-mono uppercase tracking-wider font-semibold border border-white/20 hover:border-[#3b82f6] text-white hover:text-[#3b82f6] transition-all block">
+                Request B2B Catalogue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         GRAND ATELIER FINALE — END-OF-PAGE CINEMATIC SANCTUM
+         (Reference Museum / Sandhill Finale Animation)
+         ======================================================= -->
     <section id="concierge" class="py-28 relative">
       <div class="max-w-5xl mx-auto px-6 lg:px-12">
         <div class="text-center mb-16">
@@ -532,49 +570,12 @@
           </button>
           <div class="text-center font-mono text-[11px] text-[#5f6368] flex items-center justify-center gap-2">
             <i data-lucide="lock" class="w-3.5 h-3.5 text-[#3b82f6]"></i>
-            <span>Direct conversation with factory owner. No middlemen, pure workshop pricing.</span>
+            <span>Direct conversation with the chief curator. Secure your ancient piece today.</span>
           </div>
         </form>
       </div>
     </section>
 
-    <section id="wholesale" class="py-24 relative bg-[#0d0f15] border-t border-b border-white/[0.06]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div class="max-w-xl">
-            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#3b82f6] block mb-3">// Commercial Supply Chain</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white tracking-tight leading-tight">
-              Event Planners & Tent House <span class="font-serif italic font-normal text-gold-gradient">Wholesale Guild</span>
-            </h2>
-            <p class="text-sm text-[#9aa0a6] mt-4 font-light leading-relaxed">
-              We operate large curing bays in Lucknow capable of fulfilling 20+ grand entrance sets simultaneously. Get priority batch manufacturing, modular transport packaging, and unbranded catalogue support for your event agency.
-            </p>
-            <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-white/90">
-              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Special Bulk Pricing</div>
-              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Modular Dismantle Fittings</div>
-              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6]"></i> Rapid Turnaround Guarantee</div>
-            </div>
-          </div>
-          <div class="w-full lg:w-auto">
-            <div class="p-8 rounded-2xl glass-panel border border-[#3b82f6]/30 text-center max-w-sm">
-              <div class="font-serif text-3xl text-white font-bold">Direct Call</div>
-              <div class="text-xs font-mono uppercase tracking-widest text-[#9aa0a6] mt-1">Speak with the owner</div>
-              <div class="my-6">
-                <a href="tel:+919450000000" class="text-2xl font-mono font-bold text-[#3b82f6] hover:underline block tracking-wider">+91 94500 XXXXX</a>
-              </div>
-              <a href="#concierge" class="w-full py-3 rounded-full text-xs font-mono uppercase tracking-wider font-semibold border border-white/20 hover:border-[#3b82f6] text-white hover:text-[#3b82f6] transition-all block">
-                Request B2B Catalogue
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================
-         GRAND ATELIER FINALE — END-OF-PAGE CINEMATIC SANCTUM
-         (Reference Museum / Sandhill Finale Animation)
-         ======================================================= -->
     <section id="atelierFinale" class="atelier-finale-section">
       <!-- Starlight Particle Glow Canvas -->
       <canvas id="finaleCanvas" class="finale-canvas"></canvas>
@@ -590,10 +591,10 @@
       <!-- Foreground Kinetic Editorial Typography -->
       <div class="finale-content">
         <span class="font-mono text-xs uppercase tracking-[0.35em] text-[#3b82f6] block mb-4 reveal-init">
-          // THE SACRED ATELIER // LUCKNOW
+          // THE ANCIENT MUSEUM
         </span>
         <h2 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.05] mb-6 reveal-init reveal-delay-1">
-          From Divine Vision <br>
+          The Ancient Relics <br>
           <em class="italic text-white/90">to Eternal Form</em>
         </h2>
         <p class="text-sm font-light text-[#9aa0a6] max-w-xl mx-auto leading-relaxed mb-10 reveal-init reveal-delay-2">
@@ -602,7 +603,7 @@
         <div class="flex flex-col sm:flex-row items-center justify-center gap-5 reveal-init reveal-delay-3">
           <a href="https://wa.me/919450000000?text=Hi%20Sangam%20Fabricators,%20I%20am%20ready%20to%20discuss%20a%20custom%20order." target="_blank" rel="noopener noreferrer" class="px-10 py-5 rounded-full text-xs font-mono uppercase tracking-[0.25em] font-bold btn-liquid-gold shadow-2xl flex items-center justify-center gap-3">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
-            <span>Initiate Custom Commission</span>
+            <span>Enquire About Artifact</span>
           </a>
           <a href="tel:+919450000000" class="px-8 py-5 rounded-full text-xs font-mono uppercase tracking-[0.2em] font-medium border border-white/20 hover:border-[#3b82f6] text-white hover:text-[#3b82f6] transition-all flex items-center justify-center gap-3">
             <i data-lucide="phone-call" class="w-4 h-4"></i>
@@ -611,7 +612,7 @@
         </div>
         <div class="mt-12 font-mono text-[11px] text-white/40 tracking-[0.3em] uppercase reveal-init reveal-delay-4 flex items-center justify-center gap-3">
           <span class="w-2 h-2 rounded-full bg-[#4ade80] animate-ping"></span>
-          <span>LIVE WORKSHOP BAY // 26.8467° N, 80.9462° E // PAN-INDIA CRATED DISPATCH</span>
+          <span>MUSEUM VAULT // 26.8467° N, 80.9462° E // GLOBAL SECURE DISPATCH</span>
         </div>
       </div>
     </section>
@@ -628,29 +629,29 @@
             <span class="font-display font-bold text-lg tracking-widest uppercase text-white">Sangam Fabricators</span>
           </div>
           <p class="text-xs text-[#9aa0a6] font-light max-w-sm leading-relaxed">
-            Specialist composite manufacturing studio based in Lucknow, Uttar Pradesh. Transforming liquid resins and aerospace-grade fibreglass into timeless spiritual idols, palatial event entrances, and bespoke architectural art.
+            Specialist museum and art collection based in Lucknow, Uttar Pradesh. Preserving the most pristine and timeless spiritual idols, palatial event entrances, and bespoke architectural art.
           </p>
           <div class="mt-4 font-mono text-[11px] text-[#3b82f6] tracking-widest uppercase">
             Lucknow Workshop • Uttar Pradesh, India
           </div>
         </div>
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Manufacture Capabilities</h4>
+          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Curated Categories</h4>
           <ul class="space-y-2 text-xs font-light text-[#9aa0a6]">
-            <li>God Statues (3ft to 35ft)</li>
-            <li>Victorian & Royal Gates</li>
-            <li>Event Theme Portals</li>
-            <li>Custom Busts & Relief Murals</li>
-            <li>Wholesale Tent House Decor</li>
+            <li>Sacred God Statues</li>
+            <li>Ancient Royal Gateways</li>
+            <li>Historical Portals</li>
+            <li>Stone Relief Murals</li>
+            <li>Historical Relics</li>
           </ul>
         </div>
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Atelier Connect</h4>
+          <h4 class="font-mono text-xs uppercase tracking-[0.2em] text-white mb-4">Museum Connect</h4>
           <ul class="space-y-2 text-xs font-light text-[#9aa0a6]">
             <li>WhatsApp Reference Hotline</li>
-            <li>Pan-India Delivery Logistics</li>
-            <li>B2B Contractor Pricing</li>
-            <li>Custom 3D CAD to FRP Castings</li>
+            <li>Global Artifact Shipping</li>
+            <li>Curator Partnerships</li>
+            <li>Custom Artifact Restoration</li>
           </ul>
         </div>
       </div>
@@ -670,7 +671,7 @@
     <!-- Direct Phone Call 3D Button -->
     <a href="tel:+919450000000" class="float-btn float-btn-call" aria-label="Call Sangam Fabricators Factory Directly">
       <i data-lucide="phone-call" class="w-6 h-6 stroke-[2.2]"></i>
-      <span class="float-tooltip">Call Factory Direct</span>
+      <span class="float-tooltip">Contact Curator</span>
     </a>
 
     <!-- Direct WhatsApp Texting 3D Button -->
