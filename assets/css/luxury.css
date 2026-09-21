@@ -1,15 +1,17 @@
 /* Base & High Performance Reset - Zero Lag, 60fps Native */
 :root {
-  --bg-dark: #050608;
-  --bg-surface: #0c0e14;
-  --bg-card: #12141c;
-  --border-hairline: rgba(255, 255, 255, 0.07);
-  --border-gold: rgba(212, 175, 55, 0.35);
-  --text-primary: #f4f3ef;
-  --text-secondary: #7a8090;
-  --text-muted: #4a5060;
-  --accent-gold: #d4af37;
-  --accent-gold-light: #f5d77f;
+  --bg-dark: #020204;
+  --bg-surface: #0a0c12;
+  --bg-card: #0f121a;
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(59, 130, 246, 0.4);
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #2563eb;
+  --accent-blue: #3b82f6;
+  --accent-blue-deep: #1042d7;
+  --accent-glow: rgba(37, 99, 235, 0.35);
   --font-serif: 'Cormorant Garamond', 'Cinzel', serif;
   --font-display: 'Cinzel', serif;
   --font-mono: 'Space Grotesk', monospace;
@@ -47,8 +49,8 @@ body {
   width: 100%;
   height: 88px;
   z-index: 100;
-  background: rgba(5, 6, 8, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(2, 2, 4, 0.85);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-hairline);
   display: flex;
   align-items: center;
@@ -67,9 +69,9 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: #3b82f6;
+  background: var(--accent-blue);
   border-radius: 1px;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.9);
 }
 
 /* ==========================================================
@@ -87,14 +89,14 @@ body {
   border-bottom: 1px solid var(--border-hairline);
 }
 
-/* Atmospheric ambient glow behind sculpture */
+/* Atmospheric ambient royal blue glow behind sculpture (Sampled from Reference Video #1042d7) */
 .hero-museum::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 65% at 55% 50%, rgba(212, 175, 55, 0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 35% 40% at 52% 78%, rgba(120, 80, 10, 0.09) 0%, transparent 55%);
+    radial-gradient(ellipse 55% 65% at 50% 50%, rgba(16, 66, 215, 0.14) 0%, transparent 68%),
+    radial-gradient(ellipse 35% 40% at 50% 75%, rgba(37, 99, 235, 0.08) 0%, transparent 55%);
   pointer-events: none;
   z-index: 1;
 }
@@ -110,15 +112,15 @@ body {
 }
 
 .grid-col-line {
-  border-right: 1px solid rgba(255, 255, 255, 0.045);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
   height: 100%;
 }
 
 .grid-col-line:first-child {
-  border-left: 1px solid rgba(255, 255, 255, 0.045);
+  border-left: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* Glowing Halo Ring Behind Sculpture (Exact Reference Video) */
+/* Glowing Halo Ring Behind Sculpture (Exact Reference Video — Pure White with Blue Aura) */
 .halo-ring {
   position: absolute;
   width: 440px;
@@ -127,8 +129,8 @@ body {
   border: 7px solid #ffffff;
   box-shadow:
     0 0 35px rgba(255, 255, 255, 0.95),
-    0 0 75px rgba(255, 255, 255, 0.5),
-    0 0 130px rgba(212, 175, 55, 0.35),
+    0 0 75px rgba(255, 255, 255, 0.55),
+    0 0 140px rgba(59, 130, 246, 0.4),
     inset 0 0 25px rgba(255, 255, 255, 0.3);
   pointer-events: none;
   z-index: 2;
@@ -274,9 +276,10 @@ body {
 }
 
 .nav-arrow-round:hover {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: #000;
+  background: var(--accent-primary);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.7);
   transform: scale(1.06);
 }
 
@@ -412,11 +415,12 @@ body {
   border: 1px solid var(--border-hairline);
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-clean:hover {
-  border-color: var(--border-gold);
+  border-color: var(--border-accent);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
   transform: translateY(-4px);
 }
 
@@ -447,7 +451,7 @@ body {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  border-right: 2px solid var(--accent-gold);
+  border-right: 2px solid var(--accent-blue);
 }
 
 .ba-after-wrapper img {
@@ -467,15 +471,37 @@ body {
   transform: translate(-50%, -50%);
   width: 44px;
   height: 44px;
-  background: #0b0c0e;
-  border: 2px solid var(--accent-gold);
+  background: #020204;
+  border: 2px solid var(--accent-blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: ew-resize;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.7);
   z-index: 10;
+}
+
+/* Luxury Electric Azure Button & Gradient Text */
+.btn-electric-azure, .btn-liquid-gold {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-electric-azure:hover, .btn-liquid-gold:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 6px 28px rgba(59, 130, 246, 0.65);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.text-gold-gradient, .text-accent-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Marquee */
@@ -548,7 +574,7 @@ body {
 .atelier-finale-section {
   position: relative;
   min-height: 85vh;
-  background: radial-gradient(circle at 50% 55%, rgba(212, 175, 55, 0.08) 0%, rgba(5, 6, 8, 1) 70%);
+  background: radial-gradient(circle at 50% 55%, rgba(16, 66, 215, 0.12) 0%, rgba(2, 2, 4, 1) 70%);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -573,9 +599,9 @@ body {
   border-radius: 50%;
   border: 7px solid #ffffff;
   box-shadow:
-    0 0 45px rgba(255, 255, 255, 0.9),
-    0 0 95px rgba(212, 175, 55, 0.55),
-    0 0 180px rgba(212, 175, 55, 0.3),
+    0 0 45px rgba(255, 255, 255, 0.95),
+    0 0 95px rgba(255, 255, 255, 0.6),
+    0 0 180px rgba(59, 130, 246, 0.45),
     inset 0 0 35px rgba(255, 255, 255, 0.25);
   top: 50%;
   left: 50%;
@@ -595,11 +621,11 @@ body {
 @keyframes portalBreathe {
   0% {
     transform: translate(-50%, -50%) scale(0.97);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 85px rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 90px rgba(59, 130, 246, 0.4);
   }
   100% {
     transform: translate(-50%, -50%) scale(1.03);
-    box-shadow: 0 0 65px rgba(255, 255, 255, 1), 0 0 130px rgba(212, 175, 55, 0.65), 0 0 220px rgba(212, 175, 55, 0.35);
+    box-shadow: 0 0 65px rgba(255, 255, 255, 1), 0 0 140px rgba(59, 130, 246, 0.7), 0 0 240px rgba(37, 99, 235, 0.4);
   }
 }
 

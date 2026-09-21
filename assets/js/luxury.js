@@ -4,140 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // ==========================================================
-  // SANDHILL STUDIO SLIDER ENGINE (SMOOTH 60FPS CSS TRANSFORMS)
-  // ==========================================================
-  const slidesData = [
-    {
-      img: 'assets/images/shiva_cutout_clean.png',
-      sculptureTransform: 'translate3d(0, 0, 0) scale(1)',
-      haloTransform: 'translate3d(-50%, -50%, 0) scale(1)',
-      haloOpacity: '1',
-      alt: 'Lord Shiva Meditating Statue'
-    },
-    {
-      img: 'assets/images/shiva_cutout_clean.png',
-      sculptureTransform: 'translate3d(20vw, 0, 0) scale(1.08)',
-      haloTransform: 'translate3d(calc(-50% + 20vw), -50%, 0) scale(0.9)',
-      haloOpacity: '0',
-      alt: 'Lord Shiva Sacred Specifications'
-    },
-    {
-      img: 'assets/images/gate_cutout_clean.png',
-      sculptureTransform: 'translate3d(15vw, 0, 0) scale(1)',
-      haloTransform: 'translate3d(calc(-50% + 15vw), -48%, 0) scale(1.1)',
-      haloOpacity: '0',
-      alt: 'Royal Palatial Wedding Entrance Gate'
-    },
-    {
-      img: 'assets/images/ganesha_cutout_clean.png',
-      sculptureTransform: 'translate3d(16vw, 0, 0) scale(1.06)',
-      haloTransform: 'translate3d(calc(-50% + 16vw), -50%, 0) scale(1)',
-      haloOpacity: '1',
-      alt: 'Lord Ganesha Handcrafted Divine Idol'
-    }
-  ];
-
-  const sculptureFrame = document.getElementById('sculptureFrame');
-  const sculptureMedia = document.getElementById('sculptureMedia');
-  const haloRing = document.getElementById('haloRing');
-  const slideBlocks = document.querySelectorAll('.slide-content-block');
-  const dashes = document.querySelectorAll('.progress-dash-item');
-  const slideCounter = document.getElementById('slideCounter');
-  const prevBtn = document.getElementById('prevSlideBtn');
-  const nextBtn = document.getElementById('nextSlideBtn');
-
-  let currentSlide = 0;
-  const totalSlides = slidesData.length;
-
-  function setSlide(index) {
-    if (index < 0) index = totalSlides - 1;
-    if (index >= totalSlides) index = 0;
-    currentSlide = index;
-
-    const data = slidesData[currentSlide];
-
-    // Smooth transform of sculpture & halo ring
-    if (sculptureFrame) {
-      sculptureFrame.style.transform = data.sculptureTransform;
-    }
-    if (haloRing) {
-      haloRing.style.transform = data.haloTransform;
-      haloRing.style.opacity = data.haloOpacity !== undefined ? data.haloOpacity : '1';
-    }
-
-    // Update Image smoothly
-    if (sculptureMedia && sculptureMedia.getAttribute('src') !== data.img) {
-      sculptureMedia.style.opacity = '0.4';
-      setTimeout(() => {
-        sculptureMedia.src = data.img;
-        sculptureMedia.alt = data.alt;
-        sculptureMedia.style.opacity = '1';
-      }, 150);
-    }
-
-    // Toggle active typography slide
-    slideBlocks.forEach((block, idx) => {
-      if (idx === currentSlide) {
-        block.classList.add('active');
-      } else {
-        block.classList.remove('active');
-      }
-    });
-
-    // Update left indicator
-    dashes.forEach((dash, idx) => {
-      if (idx === currentSlide) {
-        dash.classList.add('active');
-      } else {
-        dash.classList.remove('active');
-      }
-    });
-
-    // Update counter text
-    if (slideCounter) {
-      slideCounter.textContent = '0' + (currentSlide + 1) + ' / 0' + totalSlides;
-    }
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => setSlide(currentSlide - 1));
-  }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => setSlide(currentSlide + 1));
-  }
-
-    dashes.forEach(dash => {
-    dash.addEventListener('click', () => {
-      const idx = parseInt(dash.getAttribute('data-slide-index'), 10);
-      if (!isNaN(idx)) setSlide(idx);
-    });
-  });
-
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has('slide')) {
-    const sIdx = parseInt(urlParams.get('slide'), 10);
-    if (!isNaN(sIdx)) setSlide(sIdx);
-  }
-  if (urlParams.has('scroll') && urlParams.get('scroll') === 'bottom') {
-    const finale = document.getElementById('atelierFinale');
-    if (finale) {
-      setTimeout(() => {
-        finale.scrollIntoView({ behavior: 'auto' });
-      }, 60);
-    }
-  }
-
-  // Autoplay presentation every 7 seconds, pauses on interaction
-  let autoTimer = setInterval(() => setSlide(currentSlide + 1), 7000);
-  const heroMuseum = document.getElementById('heroMuseum');
-  if (heroMuseum) {
-    heroMuseum.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    heroMuseum.addEventListener('mouseleave', () => {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => setSlide(currentSlide + 1), 7000);
-    });
-  }
+  // Slider engine removed by request (Single static hero)
 
   // ==========================================================
   // BEFORE & AFTER COMPARISON SLIDER (LIGHTWEIGHT & SMOOTH)
@@ -255,38 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // SCROLL-DRIVEN HERO TRANSITIONS (WHEEL & TOUCH GESTURES)
-  // (Seamlessly steps through slides before scrolling down)
+  // SCROLL-DRIVEN 3D ROTATION EFFECT
   // ==========================================================
-  let isWheelLocked = false;
-  const heroMuseumSection = document.getElementById('heroMuseum');
-
-  if (heroMuseumSection) {
-    window.addEventListener('wheel', (e) => {
-      // Only intercept wheel if we are at the very top of the page
-      if (window.scrollY > 20) return;
-
-      if (isWheelLocked) return;
-
-      if (e.deltaY > 35) {
-        // Scrolling downward
-        if (currentSlide < totalSlides - 1) {
-          e.preventDefault();
-          setSlide(currentSlide + 1);
-          isWheelLocked = true;
-          setTimeout(() => { isWheelLocked = false; }, 650);
-        }
-        // If at the last slide (Slide 3), let native scroll proceed down
-      } else if (e.deltaY < -35) {
-        // Scrolling upward
-        if (currentSlide > 0 && window.scrollY <= 10) {
-          e.preventDefault();
-          setSlide(currentSlide - 1);
-          isWheelLocked = true;
-          setTimeout(() => { isWheelLocked = false; }, 650);
-        }
-      }
-    }, { passive: false });
+  const sculptureMedia = document.getElementById('sculptureMedia');
+  if (sculptureMedia) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      
+      // Calculate rotation based on scroll percentage, a gentle full rotation or tilt
+      // To mimic a 3D effect without getting too thin, we'll oscillate from -15 to +15
+      // or if full rotation is desired, we could use rotateY(scrolled * 0.1deg).
+      // Let's do a gentle sway for better visuals of flat png:
+      const tiltAngle = Math.sin(scrolled * 0.002) * 20; 
+      sculptureMedia.style.transform = `perspective(1000px) rotateY(${tiltAngle}deg)`;
+    }, { passive: true });
   }
 
   // ==========================================================
