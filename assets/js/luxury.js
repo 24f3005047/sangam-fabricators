@@ -254,3 +254,87 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+  // ==========================================================
+  // SKETCHFAB TRUE 3D CURSOR TRACKING
+  // ==========================================================
+  const apiFrame = document.getElementById('api-frame');
+  if (apiFrame && window.Sketchfab) {
+    const client = new Sketchfab('1.12.1', apiFrame);
+    const uid = '46f25917718e48338536689c48b160d5';
+
+    client.init(uid, {
+      success: function onSuccess(api) {
+        api.start();
+        api.addEventListener('viewerready', function() {
+          
+          let target = [0, 0, 0];
+          let originalEye = [0, -10, 0];
+          
+          api.getCameraLookAt(function(err, camera) {
+            if (!err) {
+              target = camera.target;
+              originalEye = camera.position;
+            }
+            
+            const dx = originalEye[0] - target[0];
+            const dy = originalEye[1] - target[1];
+            const dz = originalEye[2] - target[2];
+            
+            const distance = Math.sqrt(dx*dx + dy*dy + dz*dz);
+            const baseTheta = Math.atan2(dy, dx);
+            const basePhi = Math.acos(dz / distance);
+
+            // Throttle mousemove for performance
+            let ticking = false;
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+              mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+              mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+              
+              if (!ticking) {
+                window.requestAnimationFrame(() => {
+                  const maxThetaOffset = 0.6;
+                  const maxPhiOffset = 0.3;
+
+                  // Adjust theta based on mouseX (horizontal tracking)
+                  const newTheta = baseTheta + (-mouseX * maxThetaOffset);
+                  
+                  // Adjust phi based on mouseY (vertical tracking)
+                  // Make sure phi stays within [0.1, Math.PI - 0.1] to avoid flipping
+                  let newPhi = basePhi + (-mouseY * maxPhiOffset);
+                  newPhi = Math.max(0.1, Math.min(Math.PI - 0.1, newPhi));
+
+                  const newEyeX = target[0] + distance * Math.sin(newPhi) * Math.cos(newTheta);
+                  const newEyeY = target[1] + distance * Math.sin(newPhi) * Math.sin(newTheta);
+                  const newEyeZ = target[2] + distance * Math.cos(newPhi);
+
+                  api.setCameraLookAt([newEyeX, newEyeY, newEyeZ], target, 0);
+                  ticking = false;
+                });
+                ticking = true;
+              }
+            });
+          });
+        });
+      },
+      error: function onError() {
+        console.error('Sketchfab API error');
+      },
+      autostart: 1,
+      transparent: 1,
+      ui_infos: 0,
+      ui_watermark_link: 0,
+      ui_watermark: 0,
+      ui_theme: 'dark',
+      ui_stop: 0,
+      ui_controls: 0,
+      ui_help: 0,
+      orbit_constraint_pan: 1,
+      scrollwheel: 0,
+      orbit_constraint_zoom_in: 0.4,
+      orbit_constraint_zoom_out: 0.4
+    });
+  }
