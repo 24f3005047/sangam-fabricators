@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Slider engine removed by request (Single static hero)
-
   // ==========================================================
   // BEFORE & AFTER COMPARISON SLIDER (LIGHTWEIGHT & SMOOTH)
   // ==========================================================
@@ -56,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // PORTFOLIO FILTER TABS
+  // PORTFOLIO FILTER TABS (FIX #3: Use blue, not gold)
   // ==========================================================
   const filterButtons = document.querySelectorAll('.filter-btn, .filter-pill');
   const portfolioItems = document.querySelectorAll('.portfolio-card, .portfolio-item-card');
@@ -64,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       filterButtons.forEach(b => {
-        b.classList.remove('active', 'border-[#d4af37]', 'text-[#d4af37]');
+        b.classList.remove('active', 'border-[#3b82f6]', 'text-[#3b82f6]');
         b.classList.add('border-white/10', 'text-[#9aa0a6]');
       });
-      btn.classList.add('active', 'border-[#d4af37]', 'text-[#d4af37]');
+      btn.classList.add('active', 'border-[#3b82f6]', 'text-[#3b82f6]');
       btn.classList.remove('border-white/10', 'text-[#9aa0a6]');
 
       const filter = btn.getAttribute('data-filter');
@@ -99,9 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     conciergeForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const category = document.querySelector('input[name=\"conciergeCategory\"]:checked')?.value || 'Custom Project';
+      const category = document.querySelector('input[name="conciergeCategory"]:checked')?.value || 'Custom Project';
       const scale = scaleSlider ? scaleSlider.value + ' Feet' : 'Not specified';
-      const orderType = document.querySelector('input[name=\"orderType\"]:checked')?.value || 'Retail (Single Piece)';
+      const orderType = document.querySelector('input[name="orderType"]:checked')?.value || 'Retail (Single Piece)';
       const clientName = document.getElementById('clientName')?.value || 'Client';
       const clientCity = document.getElementById('clientCity')?.value || 'Lucknow / India';
       const details = document.getElementById('projectDetails')?.value || 'Custom reference discussion';
@@ -116,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '• *Requirement Details:* ' + details + '\n\n' +
         '_I am sharing my reference photo/sketch for direct factory quotation._';
 
-      const phone = '919450000000'; // Target factory owner phone
+      const phone = '919450000000';
       window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank');
     });
   }
@@ -177,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       height = finaleCanvas.height = atelierFinale.offsetHeight;
     });
 
-    // Generate 50 ambient luminous starlight particles
+    // FIX #11: Generate 50 ambient luminous BLUE starlight particles (was gold)
     const particles = [];
     for (let i = 0; i < 50; i++) {
       particles.push({
@@ -187,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alpha: Math.random() * 0.7 + 0.2,
         speedY: Math.random() * 0.45 + 0.15,
         speedX: (Math.random() - 0.5) * 0.25,
-        color: Math.random() > 0.4 ? 'rgba(212, 175, 55,' : 'rgba(255, 255, 255,'
+        color: Math.random() > 0.4 ? 'rgba(59, 130, 246,' : 'rgba(255, 255, 255,'
       });
     }
 
@@ -197,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
         p.y -= p.speedY;
         p.x += p.speedX;
 
-        // Wrap around seamlessly
         if (p.y < 0) p.y = height;
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
@@ -206,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color + p.alpha + ')';
         ctx.shadowBlur = 8;
-        ctx.shadowColor = '#d4af37';
+        ctx.shadowColor = '#3b82f6';
         ctx.fill();
       });
 
@@ -215,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Observer for Atelier Finale
     const finaleObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -238,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================
-  // BACK TO TOP SMOOTH GLIDE
+  // BACK TO TOP SMOOTH GLIDE (FIX #2: removed setSlide call)
   // ==========================================================
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {
@@ -248,18 +244,48 @@ document.addEventListener('DOMContentLoaded', () => {
         top: 0,
         behavior: 'smooth'
       });
-      setTimeout(() => {
-        setSlide(0);
-      }, 400);
     });
   }
-});
 
   // ==========================================================
-  // SKETCHFAB TRUE 3D CURSOR TRACKING
+  // MOBILE HAMBURGER MENU (FIX #15)
+  // ==========================================================
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (mobileMenuBtn && mobileMenuOverlay) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMenu() {
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on backdrop click
+    mobileMenuOverlay.addEventListener('click', (e) => {
+      if (e.target === mobileMenuOverlay) closeMenu();
+    });
+  }
+
+  // ==========================================================
+  // SKETCHFAB TRUE 3D CURSOR TRACKING (FIX #1: Inside DOMContentLoaded)
   // ==========================================================
   const apiFrame = document.getElementById('api-frame');
   if (apiFrame && window.Sketchfab) {
+    // Show loading skeleton
+    const loadingSkeleton = document.getElementById('model-loading');
+    
     const client = new Sketchfab('1.12.1', apiFrame);
     const uid = '46f25917718e48338536689c48b160d5';
 
@@ -267,6 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
       success: function onSuccess(api) {
         api.start();
         api.addEventListener('viewerready', function() {
+          // Hide loading skeleton
+          if (loadingSkeleton) loadingSkeleton.style.display = 'none';
           
           let target = [0, 0, 0];
           let originalEye = [0, -10, 0];
@@ -285,35 +313,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const baseTheta = Math.atan2(dy, dx);
             const basePhi = Math.acos(dz / distance);
 
-            // Throttle mousemove for performance
+            // FIX #1: Single mousemove listener with rAF throttle (no leak)
             let ticking = false;
             let mouseX = 0;
             let mouseY = 0;
+
+            function updateCamera() {
+              const maxThetaOffset = 0.6;
+              const maxPhiOffset = 0.3;
+
+              const newTheta = baseTheta + (-mouseX * maxThetaOffset);
+              
+              let newPhi = basePhi + (-mouseY * maxPhiOffset);
+              newPhi = Math.max(0.1, Math.min(Math.PI - 0.1, newPhi));
+
+              const newEyeX = target[0] + distance * Math.sin(newPhi) * Math.cos(newTheta);
+              const newEyeY = target[1] + distance * Math.sin(newPhi) * Math.sin(newTheta);
+              const newEyeZ = target[2] + distance * Math.cos(newPhi);
+
+              api.setCameraLookAt([newEyeX, newEyeY, newEyeZ], target, 0);
+              ticking = false;
+            }
 
             document.addEventListener('mousemove', (e) => {
               mouseX = (e.clientX / window.innerWidth) * 2 - 1;
               mouseY = (e.clientY / window.innerHeight) * 2 - 1;
               
               if (!ticking) {
-                window.requestAnimationFrame(() => {
-                  const maxThetaOffset = 0.6;
-                  const maxPhiOffset = 0.3;
-
-                  // Adjust theta based on mouseX (horizontal tracking)
-                  const newTheta = baseTheta + (-mouseX * maxThetaOffset);
-                  
-                  // Adjust phi based on mouseY (vertical tracking)
-                  // Make sure phi stays within [0.1, Math.PI - 0.1] to avoid flipping
-                  let newPhi = basePhi + (-mouseY * maxPhiOffset);
-                  newPhi = Math.max(0.1, Math.min(Math.PI - 0.1, newPhi));
-
-                  const newEyeX = target[0] + distance * Math.sin(newPhi) * Math.cos(newTheta);
-                  const newEyeY = target[1] + distance * Math.sin(newPhi) * Math.sin(newTheta);
-                  const newEyeZ = target[2] + distance * Math.cos(newPhi);
-
-                  api.setCameraLookAt([newEyeX, newEyeY, newEyeZ], target, 0);
-                  ticking = false;
-                });
+                window.requestAnimationFrame(updateCamera);
                 ticking = true;
               }
             });
@@ -322,6 +349,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       error: function onError() {
         console.error('Sketchfab API error');
+        const loadingSkeleton = document.getElementById('model-loading');
+        if (loadingSkeleton) loadingSkeleton.textContent = 'Failed to load 3D model';
       },
       autostart: 1,
       transparent: 1,
@@ -338,3 +367,5 @@ document.addEventListener('DOMContentLoaded', () => {
       orbit_constraint_zoom_out: 0.4
     });
   }
+
+}); // end DOMContentLoaded

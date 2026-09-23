@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sangam Fabricators | Museum of Ancient Art & Sacred Idols</title>
-  <meta name="description" content="Premier Lucknow atelier for custom fibre & resin statues, monumental party entrances, divine religious idols, and architectural sculptures at direct factory rates.">
+  <title>Sangam Fabricators | Custom Fibre & Resin Statues, Grand Event Entrances — Lucknow</title>
+  <meta name="description" content="Lucknow's premier fibre and resin fabrication workshop. Custom god statues, monumental temple idols, grand wedding gates, and bespoke sculptures at direct factory rates.">
+  
+  <!-- Open Graph / Social Meta Tags (FIX #22) -->
+  <meta property="og:title" content="Sangam Fabricators — Custom Sculptures & Grand Entrances">
+  <meta property="og:description" content="Lucknow's premier fibre and resin workshop. Monumental god statues, royal wedding gates, and bespoke sculptures at direct factory rates.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/ganesha_statue.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon (FIX #21) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23020204'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%233b82f6'>S</text></svg>">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +32,8 @@
               dark: '#020204',
               surface: '#0a0c12',
               card: '#0f121a',
-              gold: '#3b82f6', accent: '#2563eb', accentLight: '#3b82f6',
-              goldLight: '#93c5fd'
+              blue: '#3b82f6', accent: '#2563eb', accentLight: '#3b82f6',
+              blueLight: '#93c5fd'
             }
           },
           fontFamily: {
@@ -68,15 +78,29 @@
         <a href="#concierge" class="nav-link-item hover:text-white">VISIT</a>
       </nav>
 
-      <!-- Right Action & 3x3 Dot Grid Icon -->
+      <!-- Right Action -->
       <div class="flex items-center gap-6">
         <a href="#concierge" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-mono uppercase tracking-widest font-semibold border border-white/20 hover:border-[#3b82f6] text-white hover:text-[#3b82f6] transition-all">
           <span>Quote</span>
         </a>
+        <!-- Mobile Hamburger (FIX #15) -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn md:hidden" aria-label="Open Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
 
     </div>
   </header>
+
+  <!-- Mobile Full-Screen Nav Overlay (FIX #15) -->
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay">
+    <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close Menu">&times;</button>
+    <a href="#heroMuseum" class="mobile-nav-link active">Home</a>
+    <a href="#portfolio" class="mobile-nav-link">Collection</a>
+    <a href="#reference-lab" class="mobile-nav-link">Artists</a>
+    <a href="#wholesale" class="mobile-nav-link">Events</a>
+    <a href="#concierge" class="mobile-nav-link">Visit</a>
+  </div>
 
   <main>
     <!-- =======================================================
@@ -99,7 +123,12 @@
 
       <!-- Central 3D Sculpture Stage -->
       <div class="sculpture-stage">
-        <div class="sculpture-frame" id="sculptureFrame" style="width: 100vw; max-width: 1200px; height: 100vh; max-height: 1200px; display: flex; justify-content: center; align-items: center; pointer-events: auto; margin: 0 auto;">
+        <div class="sculpture-frame" id="sculptureFrame" style="width: 100%; max-width: 1200px; height: 100vh; max-height: 1200px; display: flex; justify-content: center; align-items: center; pointer-events: auto; margin: 0 auto;">
+          <!-- Loading Skeleton (FIX #9) -->
+          <div id="model-loading" class="model-loading-skeleton">
+            <div class="spinner"></div>
+            <span>Loading 3D Model...</span>
+          </div>
           <iframe 
             id="api-frame"
             title="Antique Ganesha" 
@@ -127,7 +156,7 @@
               Ganesha
             </h1>
           </div>
-          <div class="text-right hidden md:block">
+          <div class="text-right block">
             <h1 class="museum-headline">
               Sangam <br>
               Fabricators
@@ -682,9 +711,6 @@
 
   </div>
 
-  <script>
-    lucide.createIcons();
-  </script>
   <script src="assets/js/luxury.js"></script>
 </body>
 </html>
