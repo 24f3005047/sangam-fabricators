@@ -1,2 +1,37 @@
 assets/sandhill_ref.mp4
 scratch_gen.py
+# Python/Agent Scratch Scripts
+scratch_*.py
+optimize_*.py
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Editor & IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# General Web/Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# Logs & Temp
+*.log
+tmp/
+temp/

@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // SCROLL REVEAL INTERSECTION OBSERVER
   // ==========================================================
   const revealElements = document.querySelectorAll(
-    '.reveal-init, .portfolio-card, #referenceSlider, .material-cell, .identity-left, .identity-stats, .call-card'
+    '.reveal-init, .portfolio-card, #referenceSlider, .material-cell, .identity-left, .identity-stats, .call-card, .scroll-reveal'
   );
 
   const revealObserver = new IntersectionObserver((entries) => {
@@ -293,8 +293,15 @@ document.addEventListener('DOMContentLoaded', () => {
       success: function onSuccess(api) {
         api.start();
         api.addEventListener('viewerready', function() {
-          // Hide loading skeleton
-          if (loadingSkeleton) loadingSkeleton.style.display = 'none';
+          // Hide loading skeleton & reveal iframe
+          if (loadingSkeleton) {
+            loadingSkeleton.style.opacity = '0';
+            setTimeout(() => loadingSkeleton.style.display = 'none', 500);
+          }
+          if (apiFrame) {
+            apiFrame.classList.remove('opacity-0', 'blur-sm');
+            apiFrame.classList.add('opacity-100', 'blur-0');
+          }
           
           let target = [0, 0, 0];
           let originalEye = [0, -10, 0];
@@ -368,4 +375,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  // ==========================================================
+  // MAGNETIC FLOATING BUTTONS (PRO UX)
+  // ==========================================================
+  const floatBtns = document.querySelectorAll('.float-btn');
+  floatBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const h = rect.width / 2;
+      const x = e.clientX - rect.left - h;
+      const y = e.clientY - rect.top - h;
+      
+      // Pull button slightly towards mouse
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.06)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0px, 0px) scale(1)';
+    });
+  });
 }); // end DOMContentLoaded
