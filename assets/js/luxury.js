@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '_I am sharing my reference photo/sketch for direct factory quotation._';
 
       const phone = '919450000000';
-      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank');
+      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
     });
   }
 
