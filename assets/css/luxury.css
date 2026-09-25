@@ -760,3 +760,12 @@ body {
   .finale-portal { width: 290px; height: 290px; }
   .finale-sculpture { width: 280px; height: 380px; }
 }
+
+@media (max-width: 480px) {
+  .museum-headline { font-size: 2rem; }
+  .sculpture-frame { height: 400px; }
+  .ba-container { height: 350px; }
+  .hero-content-layer { padding: 0 24px; }
+  .floating-actions-dock { bottom: 12px; right: 12px; gap: 8px; }
+  .float-btn { width: 44px; height: 44px; }
+}

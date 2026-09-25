@@ -36,3 +36,7 @@ yarn-error.log*
 tmp/
 temp/
 apply_security.py
+
+# Additional Agent Scripts
+fix_*.py
+safe_*.py
