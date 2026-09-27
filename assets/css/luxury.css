@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for sticky header */
   background-color: var(--bg-dark);
 }
 
@@ -768,4 +769,26 @@ body {
   .hero-content-layer { padding: 0 24px; }
   .floating-actions-dock { bottom: 12px; right: 12px; gap: 8px; }
   .float-btn { width: 44px; height: 44px; }
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark); 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue); 
+}
+
+/* Prevent iOS Zoom on Inputs & Textareas */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  input[type="text"], textarea {
+    font-size: 16px;
+  }
 }

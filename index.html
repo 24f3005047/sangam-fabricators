@@ -6,6 +6,11 @@
   <title>Sangam Fabricators | Custom Fibre & Resin Statues, Grand Event Entrances — Lucknow</title>
   <meta name="description" content="Lucknow's premier fibre and resin fabrication workshop. Custom god statues, monumental temple idols, grand wedding gates, and bespoke sculptures at direct factory rates.">
   
+  <!-- Security & SEO Meta Tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://static.sketchfab.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://sketchfab.com; connect-src 'self' https://*.sketchfab.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#020204">
+  
   <!-- Open Graph / Social Meta Tags (FIX #22) -->
   <meta property="og:title" content="Sangam Fabricators — Custom Sculptures & Grand Entrances">
   <meta property="og:description" content="Lucknow's premier fibre and resin workshop. Monumental god statues, royal wedding gates, and bespoke sculptures at direct factory rates.">
@@ -596,15 +601,15 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Your Name</label>
-              <input type="text" id="clientName" required placeholder="e.g. Rahul Sharma" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
+              <input type="text" id="clientName" required maxlength="100" placeholder="e.g. Rahul Sharma" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
             </div>
             <div>
               <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">City / Location</label>
-              <input type="text" id="clientCity" required placeholder="e.g. Lucknow, Kanpur, Delhi" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
+              <input type="text" id="clientCity" required maxlength="100" placeholder="e.g. Lucknow, Kanpur, Delhi" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
             </div>
             <div class="sm:col-span-2">
               <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Describe Your Reference Image or Requirement</label>
-              <textarea id="projectDetails" rows="3" placeholder="e.g. I have a reference photo of an ornate temple gate with two elephants on the sides..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]"></textarea>
+              <textarea id="projectDetails" rows="3" maxlength="1000" placeholder="e.g. I have a reference photo of an ornate temple gate with two elephants on the sides..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]"></textarea>
             </div>
           </div>
           <button type="submit" class="w-full py-5 rounded-full text-xs font-mono uppercase tracking-[0.2em] font-bold btn-liquid-gold flex items-center justify-center gap-3">
