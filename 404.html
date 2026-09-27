@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Page Not Found - Sangam Fabricators</title>
+  <meta name="theme-color" content="#020204">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23020204'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%233b82f6'>S</text></svg>">
+  
+  <!-- Font Preloads (Performance) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" as="style">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#020204',
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            display: ['Cinzel', 'serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.263.1"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/luxury.css">
+  
+  <style>
+    .error-glow {
+      text-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-dark text-white font-sans antialiased overflow-hidden h-screen flex flex-col items-center justify-center relative">
+  
+  <!-- Background Ambient Glow -->
+  <div class="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
+    <div class="w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-[#3b82f6] rounded-full blur-[120px] sm:blur-[150px] opacity-[0.08]"></div>
+  </div>
+
+  <!-- Minimalist Header / Brand -->
+  <a href="index.html" class="absolute top-8 left-8 sm:top-12 sm:left-12 z-20 flex items-center gap-3 group">
+    <div class="w-10 h-10 border border-white/10 flex items-center justify-center rounded-sm bg-black/50 group-hover:border-[#3b82f6] transition-colors">
+      <span class="font-serif text-[#3b82f6] font-bold text-xl">S</span>
+    </div>
+    <span class="font-display font-bold text-sm tracking-widest uppercase text-white group-hover:text-[#3b82f6] transition-colors hidden sm:block">Sangam Fabricators</span>
+  </a>
+
+  <!-- 404 Content -->
+  <div class="relative z-10 text-center px-6 mt-[-5vh]">
+    <h1 class="font-serif text-8xl md:text-[12rem] leading-none font-light error-glow text-white mb-2 md:mb-4">404</h1>
+    <span class="font-mono text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#3b82f6] block mb-6">// PAGE NOT FOUND</span>
+    
+    <p class="text-[#9aa0a6] text-sm md:text-base font-light max-w-md mx-auto mb-10 leading-relaxed">
+      The specific blueprint or design you are looking for does not exist in our workshop archives. It may have been moved or deleted.
+    </p>
+    
+    <a href="index.html" class="inline-flex items-center gap-3 px-8 py-4 border border-white/20 rounded-full text-[10px] md:text-xs font-mono uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+      <i aria-hidden="true" data-lucide="arrow-left" class="w-4 h-4"></i>
+      Return to Workshop
+    </a>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
