@@ -1,10 +1,19 @@
-assets/sandhill_ref.mp4
-scratch_gen.py
-# Python/Agent Scratch Scripts
-scratch_*.py
-optimize_*.py
+# ==========================================
+# Sangam Fabricators - Git Ignore Rules
+# ==========================================
 
-# OS Generated Files
+# 1. Agent & Automation Scripts (Temporary files used by AI)
+*.py
+*.pyc
+__pycache__/
+
+# 2. Heavy Media & References (Don't bloat the repo)
+assets/sandhill_ref.mp4
+assets/**/*.mp4
+*.mov
+*.avi
+
+# 3. OS Generated Files (Windows & Mac)
 .DS_Store
 .DS_Store?
 ._*
@@ -15,28 +24,26 @@ ehthumbs_vista.db
 [Tt]humbs.db
 [Dd]esktop.ini
 
-# Editor & IDEs
+# 4. Editor & IDEs
 .vscode/
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
+*.swo
 
-# General Web/Node
+# 5. General Web/Node (Future-proofing)
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
+.env.local
 
-# Logs & Temp
+# 6. Logs & Temp Folders
 *.log
 tmp/
 temp/
-apply_security.py
-
-# Additional Agent Scripts
-fix_*.py
-safe_*.py
+.tempmediaStorage/
