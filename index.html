@@ -7,7 +7,7 @@
   <meta name="description" content="Lucknow's premier fibre and resin fabrication workshop. Custom god statues, monumental temple idols, grand wedding gates, and bespoke sculptures at direct factory rates.">
   
   <!-- Security & SEO Meta Tags -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://static.sketchfab.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self' https://sketchfab.com; connect-src 'self' https://*.sketchfab.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://static.sketchfab.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; frame-src 'self' https://sketchfab.com; connect-src 'self' https://*.sketchfab.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#020204">
   
@@ -61,6 +61,16 @@
 
   <!-- Custom Styles (Zero Lag, 60fps Native) -->
   <link rel="stylesheet" href="assets/css/luxury.css">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body class="bg-[#020204] text-[#f4f3ef] antialiased selection:bg-[#2563eb] selection:text-white">
 
