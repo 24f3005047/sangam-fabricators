@@ -1,0 +1,16 @@
+{
+  "name": "Sangam Fabricators",
+  "short_name": "Sangam Fab",
+  "description": "Lucknow's premier fibre and resin fabrication workshop.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#020204",
+  "theme_color": "#020204",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23020204'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%233b82f6'>S</text></svg>",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ]
+}

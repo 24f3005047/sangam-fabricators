@@ -792,3 +792,28 @@ body {
     font-size: 16px;
   }
 }
+
+/* ==========================================================
+   PRINT STYLES (For B2B Brochures/PDF Export)
+   ========================================================== */
+@media print {
+  body, html { 
+    background: white !important; 
+    color: black !important; 
+  }
+  .hero-museum, .atelier-finale-section, .floating-actions-dock, .mobile-menu-btn, .scroll-progress-bar, #concierge {
+    display: none !important;
+  }
+  .portfolio-card, .card-clean {
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    background: transparent !important;
+  }
+  h1, h2, h3, p, span {
+    color: black !important;
+    text-shadow: none !important;
+  }
+  * {
+    box-shadow: none !important;
+  }
+}
