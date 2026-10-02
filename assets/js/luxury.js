@@ -115,7 +115,29 @@ document.addEventListener('DOMContentLoaded', () => {
         '_I am sharing my reference photo/sketch for direct factory quotation._';
 
       const phone = '919450000000';
-      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
+      
+      // Premium Submit Micro-Interaction
+      const submitBtn = conciergeForm.querySelector('button[type="submit"]');
+      const originalHTML = submitBtn.innerHTML;
+      
+      submitBtn.innerHTML = '<div style="width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite" class="mr-2"></div> <span>Generating Factory Blueprint...</span>';
+      submitBtn.style.pointerEvents = 'none';
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 mr-2"></i> <span class="text-emerald-400">Connecting to Master Artisan...</span>';
+        if(window.lucide) window.lucide.createIcons();
+        
+        setTimeout(() => {
+          window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
+          
+          setTimeout(() => {
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.style.pointerEvents = 'auto';
+            if(window.lucide) window.lucide.createIcons();
+          }, 2000);
+        }, 800);
+      }, 1200);
+
     });
   }
 
@@ -395,4 +417,38 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.style.transform = 'translate(0px, 0px) scale(1)';
     });
   });
+
+  // ==========================================================
+  // PREMIUM 3D TILT EFFECT FOR PORTFOLIO CARDS (AWWWARDS STYLE)
+  // ==========================================================
+  const cards = document.querySelectorAll('.portfolio-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element
+      const y = e.clientY - rect.top;  // y position within the element
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -8; // Max rotation 8deg
+      const rotateY = ((x - centerX) / centerX) * 8;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.transition = 'none';
+      card.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+      card.style.zIndex = '1';
+    });
+    
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.1s cubic-bezier(0.23, 1, 0.32, 1)';
+    });
+  });
+
 }); // end DOMContentLoaded
