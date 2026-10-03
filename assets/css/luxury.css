@@ -237,8 +237,8 @@ body {
 
 .float-btn {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -756,7 +756,7 @@ body {
   .museum-headline { font-size: 2.8rem; }
   .sculpture-frame { height: 500px; }
   .floating-actions-dock { bottom: 18px; right: 18px; gap: 12px; }
-  .float-btn { width: 52px; height: 52px; }
+  .float-btn { width: 46px; height: 46px; }
   .float-tooltip { display: none; }
   .finale-portal { width: 290px; height: 290px; }
   .finale-sculpture { width: 280px; height: 380px; }
@@ -768,7 +768,7 @@ body {
   .ba-container { height: 350px; }
   .hero-content-layer { padding: 0 24px; }
   .floating-actions-dock { bottom: 12px; right: 12px; gap: 8px; }
-  .float-btn { width: 44px; height: 44px; }
+  .float-btn { width: 40px; height: 40px; }
 }
 
 /* Custom Luxury Scrollbar */
@@ -816,4 +816,12 @@ body {
   * {
     box-shadow: none !important;
   }
+}
+
+/* Fix for floating button icons visibility */
+.float-btn svg {
+  position: relative;
+  z-index: 10;
+  stroke: #ffffff;
+  display: block;
 }
