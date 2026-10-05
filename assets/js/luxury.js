@@ -97,6 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
     conciergeForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      if (!conciergeForm.checkValidity()) {
+        conciergeForm.reportValidity();
+        return;
+      }
+
       const category = document.querySelector('input[name="conciergeCategory"]:checked')?.value || 'Custom Project';
       const scale = scaleSlider ? scaleSlider.value + ' Feet' : 'Not specified';
       const orderType = document.querySelector('input[name="orderType"]:checked')?.value || 'Retail (Single Piece)';
