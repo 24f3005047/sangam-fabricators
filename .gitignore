@@ -8,12 +8,22 @@
 __pycache__/
 
 # 2. Heavy Media & References (Don't bloat the repo)
-assets/sandhill_ref.mp4
 assets/**/*.mp4
+assets/**/*.mov
+assets/**/*.avi
+*.mp4
 *.mov
 *.avi
+*.mkv
 
-# 3. OS Generated Files (Windows & Mac)
+# 3. Archives & Backups
+*.zip
+*.tar.gz
+*.rar
+*.bak
+*.tmp
+
+# 4. OS Generated Files (Windows & Mac)
 .DS_Store
 .DS_Store?
 ._*
@@ -24,9 +34,11 @@ ehthumbs_vista.db
 [Tt]humbs.db
 [Dd]esktop.ini
 
-# 4. Editor & IDEs
+# 5. Editor, IDEs, & AI Tools
 .vscode/
 .idea/
+.cursor/
+.gemini/
 *.suo
 *.ntvs*
 *.njsproj
@@ -34,16 +46,18 @@ ehthumbs_vista.db
 *.swp
 *.swo
 
-# 5. General Web/Node (Future-proofing)
+# 6. General Web/Node (Future-proofing)
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
-.env.local
+.env.*
+!.env.example
 
-# 6. Logs & Temp Folders
+# 7. Logs & Temp Folders
 *.log
 tmp/
 temp/
 .tempmediaStorage/
+scratch/

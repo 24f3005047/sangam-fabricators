@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     baContainer.addEventListener('touchstart', (e) => {
       isDown = true;
       if (e.touches[0]) moveSlider(e.touches[0].clientX);
-    });
-    window.addEventListener('touchend', () => isDown = false);
+    }, { passive: true });
+    window.addEventListener('touchend', () => isDown = false, { passive: true });
     window.addEventListener('touchmove', (e) => {
       if (!isDown || !e.touches[0]) return;
       moveSlider(e.touches[0].clientX);
-    });
+    }, { passive: true });
   }
 
   // ==========================================================
