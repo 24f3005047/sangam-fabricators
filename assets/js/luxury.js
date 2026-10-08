@@ -70,6 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.getAttribute('data-filter');
       portfolioItems.forEach(item => {
+        // Reset 3D Tilt state to prevent stuck inline styles when filtered
+        item.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        item.style.zIndex = '1';
+        
         const cat = item.getAttribute('data-category');
         if (filter === 'all' || cat === filter) {
           item.style.display = 'block';
