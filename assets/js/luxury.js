@@ -307,6 +307,11 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuOverlay.addEventListener('click', (e) => {
       if (e.target === mobileMenuOverlay) closeMenu();
     });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) closeMenu();
+    });
   }
 
   // ==========================================================
