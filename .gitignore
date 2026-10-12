@@ -22,6 +22,7 @@ assets/**/*.avi
 *.rar
 *.bak
 *.tmp
+*.orig
 
 # 4. OS Generated Files (Windows & Mac)
 .DS_Store
@@ -46,8 +47,11 @@ ehthumbs_vista.db
 *.swp
 *.swo
 
-# 6. General Web/Node (Future-proofing)
+# 6. General Web, Build Outputs & Node
 node_modules/
+dist/
+build/
+out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
