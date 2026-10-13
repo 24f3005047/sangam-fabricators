@@ -47,11 +47,13 @@ ehthumbs_vista.db
 *.swp
 *.swo
 
-# 6. General Web, Build Outputs & Node
+# 6. General Web, Build Outputs, Caches & Node
 node_modules/
 dist/
 build/
 out/
+.cache/
+.parcel-cache/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -59,8 +61,15 @@ yarn-error.log*
 .env.*
 !.env.example
 
-# 7. Logs & Temp Folders
+# 7. Security, Keys & Credentials
+*.pem
+*.key
+*.cert
+*.crt
+
+# 8. Logs & Temp Folders
 *.log
+*.stackdump
 tmp/
 temp/
 .tempmediaStorage/
