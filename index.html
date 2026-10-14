@@ -178,6 +178,11 @@
             <div class="spinner"></div>
             <span>Loading 3D Model...</span>
           </div>
+          <!-- Resilient Fallback if 3D / WebGL / Network is blocked -->
+          <div id="model-fallback" class="hidden opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center text-center p-4 z-[2]">
+            <img src="assets/images/ganesha_statue.jpg" alt="Antique Ganesha Composite Sculpture" class="max-h-[300px] sm:max-h-[460px] w-auto max-w-[85vw] object-cover rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.25)] mb-3">
+            <span class="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#9aa0a6]">// Handcrafted Fibre Idol</span>
+          </div>
           <iframe 
             id="api-frame" class="opacity-0 transition-all duration-1000 blur-sm"
             title="Antique Ganesha" 

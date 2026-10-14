@@ -23,6 +23,7 @@ assets/**/*.avi
 *.bak
 *.tmp
 *.orig
+*~
 
 # 4. OS Generated Files (Windows & Mac)
 .DS_Store
@@ -67,10 +68,13 @@ yarn-error.log*
 *.cert
 *.crt
 
-# 8. Logs & Temp Folders
+# 8. Logs, Dumps & Temp Folders
 *.log
 *.stackdump
+*.dmp
 tmp/
 temp/
+coverage/
+.nyc_output/
 .tempmediaStorage/
 scratch/
