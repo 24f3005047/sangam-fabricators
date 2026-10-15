@@ -68,7 +68,12 @@ yarn-error.log*
 *.cert
 *.crt
 
-# 8. Logs, Dumps & Temp Folders
+# 8. Hosting & Deployment Cache
+.vercel/
+.netlify/
+.output/
+
+# 9. Logs, Dumps & Temp Folders
 *.log
 *.stackdump
 *.dmp
