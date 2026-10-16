@@ -55,6 +55,13 @@ build/
 out/
 .cache/
 .parcel-cache/
+.pnp*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -73,10 +80,11 @@ yarn-error.log*
 .netlify/
 .output/
 
-# 9. Logs, Dumps & Temp Folders
+# 9. Logs, Audits, Dumps & Temp Folders
 *.log
 *.stackdump
 *.dmp
+.lighthouserc*
 tmp/
 temp/
 coverage/

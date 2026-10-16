@@ -312,6 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) closeMenu();
     });
+
+    // Reset scroll lock if resized or rotated to desktop viewport
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && mobileMenuOverlay.classList.contains('active')) {
+        closeMenu();
+      }
+    });
   }
 
   // ==========================================================
