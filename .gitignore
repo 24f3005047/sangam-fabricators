@@ -47,6 +47,7 @@ ehthumbs_vista.db
 *.sln
 *.swp
 *.swo
+*.code-workspace
 
 # 6. General Web, Build Outputs, Caches & Node
 node_modules/
