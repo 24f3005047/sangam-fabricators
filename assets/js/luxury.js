@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '_I am sharing my reference photo/sketch for direct factory quotation._';
 
       const phone = '919450000000';
+      const waUrl = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg);
       
       // Premium Submit Micro-Interaction
       const submitBtn = conciergeForm.querySelector('button[type="submit"]');
@@ -134,18 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
       
       setTimeout(() => {
         submitBtn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 mr-2"></i> <span class="text-emerald-400">Connecting to Master Artisan...</span>';
-        if(window.lucide) window.lucide.createIcons();
+        if (window.lucide) window.lucide.createIcons();
         
         setTimeout(() => {
-          window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg), '_blank', 'noopener,noreferrer');
+          // Fix popup blocker: use window.location.href on mobile to launch native WhatsApp
+          // On desktop, attempt window.open with graceful window.location fallback if blocked
+          const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent) || (window.innerWidth <= 768);
+          
+          if (isMobile) {
+            window.location.href = waUrl;
+          } else {
+            try {
+              const newWin = window.open(waUrl, '_blank', 'noopener,noreferrer');
+              if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+                window.location.href = waUrl;
+              }
+            } catch (err) {
+              window.location.href = waUrl;
+            }
+          }
           
           setTimeout(() => {
             submitBtn.innerHTML = originalHTML;
             submitBtn.style.pointerEvents = 'auto';
-            if(window.lucide) window.lucide.createIcons();
-          }, 2000);
-        }, 800);
-      }, 1200);
+            if (window.lucide) window.lucide.createIcons();
+          }, 2500);
+        }, 600);
+      }, 900);
 
     });
   }
