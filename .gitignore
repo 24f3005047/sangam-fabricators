@@ -48,6 +48,8 @@ ehthumbs_vista.db
 *.swp
 *.swo
 *.code-workspace
+*.sublime-workspace
+*.sublime-project
 
 # 6. General Web, Build Outputs, Caches & Node
 node_modules/
@@ -68,6 +70,7 @@ yarn-debug.log*
 yarn-error.log*
 .env
 .env.*
+.env*.local
 !.env.example
 
 # 7. Security, Keys & Credentials
@@ -86,6 +89,9 @@ yarn-error.log*
 *.stackdump
 *.dmp
 .lighthouserc*
+.eslintcache
+.stylelintcache
+crash_dumps/
 tmp/
 temp/
 coverage/

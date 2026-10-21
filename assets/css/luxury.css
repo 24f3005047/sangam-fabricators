@@ -42,6 +42,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.font-display {
+  font-family: var(--font-display);
+}
+
 /* Header */
 .lourve-header {
   position: fixed;
