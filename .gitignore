@@ -20,6 +20,9 @@ assets/**/*.avi
 *.zip
 *.tar.gz
 *.rar
+*.7z
+*.dmg
+*.iso
 *.bak
 *.tmp
 *.orig
@@ -40,6 +43,9 @@ ehthumbs_vista.db
 .vscode/
 .idea/
 .cursor/
+.history/
+*.patch
+*.diff
 .gemini/
 *.suo
 *.ntvs*
@@ -84,6 +90,8 @@ pnpm-debug.log*
 # 8. Hosting & Deployment Cache
 .vercel/
 .netlify/
+.cloudflare/
+.now/
 .output/
 
 # 9. Logs, Audits, Dumps & Temp Folders
