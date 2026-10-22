@@ -50,6 +50,7 @@ ehthumbs_vista.db
 *.code-workspace
 *.sublime-workspace
 *.sublime-project
+*.sublime-*
 
 # 6. General Web, Build Outputs, Caches & Node
 node_modules/
@@ -68,6 +69,7 @@ out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 .env
 .env.*
 .env*.local
@@ -92,6 +94,10 @@ yarn-error.log*
 .eslintcache
 .stylelintcache
 crash_dumps/
+*.pid
+*.seed
+*.pid.lock
+.sass-cache/
 tmp/
 temp/
 coverage/
