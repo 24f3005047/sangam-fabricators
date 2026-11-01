@@ -605,7 +605,7 @@
           </div>
           <div>
             <div class="flex items-center justify-between mb-4">
-              <label class="font-mono text-xs uppercase tracking-widest text-[#3b82f6]">
+              <label for="scaleSlider" class="font-mono text-xs uppercase tracking-widest text-[#3b82f6] cursor-pointer">
                 Step 2: Approximate Height / Scale
               </label>
               <span id="scaleDisplay" class="font-mono text-sm font-bold text-white bg-white/10 px-3 py-1 rounded-full">10 Feet</span>
@@ -646,15 +646,15 @@
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Your Name</label>
+              <label for="clientName" class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2 cursor-pointer">Your Name</label>
               <input type="text" id="clientName" required maxlength="100" placeholder="e.g. Rahul Sharma" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
             </div>
             <div>
-              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">City / Location</label>
+              <label for="clientCity" class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2 cursor-pointer">City / Location</label>
               <input type="text" id="clientCity" required maxlength="100" placeholder="e.g. Lucknow, Kanpur, Delhi" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]">
             </div>
             <div class="sm:col-span-2">
-              <label class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2">Describe Your Reference Image or Requirement</label>
+              <label for="projectDetails" class="block font-mono text-xs uppercase tracking-widest text-white/80 mb-2 cursor-pointer">Describe Your Reference Image or Requirement</label>
               <textarea id="projectDetails" rows="3" maxlength="1000" placeholder="e.g. I have a reference photo of an ornate temple gate with two elephants on the sides..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#3b82f6]"></textarea>
             </div>
           </div>
